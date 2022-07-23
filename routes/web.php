@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\BookingController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\VendorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +71,21 @@ Route::prefix('blog')->group(function () {
         });
     });
 });
+// blog route end
+
+// vendor route
+Route::prefix('vendor')->group(function () {
+    Route::controller(VendorController::class)->group(function () {
+        Route::name('vendor.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/loadtable', 'loadtable')->name('loadtable');
+            Route::get('/delete/{id}', 'delete')->name('delete');
+            Route::post('/destroy', 'destroy')->name('destroy');
+            Route::post('/update', 'update')->name('update');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+        });
+    });
+});
+Route::get('/addnewvendor',[VendorController::class, 'addnewvendor']);
+Route::post('/addnewvendor/add',[VendorController::class, 'store']);
+// vendor route end

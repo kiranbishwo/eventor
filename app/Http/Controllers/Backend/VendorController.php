@@ -1,125 +1,136 @@
 <?php
-
 namespace App\Http\Controllers\Backend;
+
 use Illuminate\Support\Facades\File; 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Exception;
-use App\Models\Blog;
+use App\Models\Vendor;
 use Response;
 
-class BlogController extends Controller
+
+
+class VendorController extends Controller
 {
     public function index(){
-        return view('backend.blog');
+        return view('backend.vendor');
     }
-    public function addnewblog(){
-        return view('backend.addnewblog');
+    public function addnewvendor(){
+        return view('backend.addnewvendor');
     }
-
+    // loadtable
     public function loadtable(){
-        $blog = Blog::all();
+        $vendor = Vendor::all();
         return response()->json([
-            'blog'=> $blog,
+            'vendor'=> $vendor,
         ]);
         
     }
-
+    // store
     public function store(Request $req){
-        $test=$req->file('photo')->guessExtension();//get extention
-        $type=$req->file('photo')->getMimeType();//get type
+        
         
         $req->validate([
-            'title'=>'required',
+            'name'=>'required',
+            'service'=>'required',
+            'contact'=>'required',
+            'status'=>'required',
+            'address'=>'required',
             'content'=>'required',
             'photo'=>'required|mimes:jpg,png,jpg|max:5048',
         ]);
+
+        $test=$req->file('photo')->guessExtension();//get extention
+        $type=$req->file('photo')->getMimeType();//get type
 
         $newImageName = time().'.'.$req->photo->extension();
         $result=  $req->photo->move(public_path('images'),$newImageName);
 
 
         if($req->ajax()){
-            $blog = Blog::create([
-                'title' => $req->input('title'),
+            $vendor = Vendor::create([
+                'name' => $req->input('name'),
+                'service' => $req->input('service'),
+                'contact' => $req->input('contact'),
+                'status' => $req->input('status'),
+                'address' => $req->input('address'),
                 'content' => $req->input('content'),
                 'photo' => $newImageName
             ]);
             return Response()->json([
                 'status' => 200,
-                'message' => 'Blog Added Successfully.',
+                'message' => 'Vendor Added Successfully.',
             ]);
         }
        
     }
-
-
+    // delete
     public function delete($id){
-        $blog =  Blog::find($id);
+        $vendor =  Vendor::find($id);
         // dd($student);
-        if($blog){
+        if($vendor){
             return response()->json([
                 'status' => 200,
-                'message' => $blog,
+                'message' => $vendor,
             ]);
         }else{
             return response()->json([
                 'status' => 404,
-                'message' => 'Blog Doesnt Exist',
+                'message' => 'Vendor Doesnt Exist',
             ]);
         }
     }
 
+
     public function destroy(Request $req){
         if($req->ajax()){
+
             // delete file if exist
-            $grab_data = Blog::find($req->id);//grab data
+            $grab_data = Vendor::find($req->id);//grab data
             $old_img = $grab_data->photo;
             
             if(File::exists(public_path('images/'.$old_img))){
                 File::delete(public_path('images/'.$old_img));
-                /*
-                    Delete Multiple File like this way
-                    Storage::delete(['upload/test.png', 'upload/test2.png']);
-                */
             }else{
                 dd('File does not exists.');
             }
             // end delete file
+            
 
-
-            $blog = Blog::destroy($req->id);
+            $vendor = Vendor::destroy($req->id);
             return Response()->json([
                 'status' => 200,
-                'message' => 'Blog Deleted Successfully',
+                'message' => 'Vendor Deleted Successfully',
             ]);
         }
     }
-    
+// edit
     public function edit($id){
-        $blog = Blog::Find($id);
-        return view('backend.updateblog', ['blog'=>$blog]);
+        $vendor = Vendor::Find($id);
+        return view('backend.updatevendor', ['vendor'=>$vendor]);
        
     }
+    // update
     public function update(Request $req){
         if($req->ajax()){
             $req->validate([
-                'title'=>'required',
-                'content'=>'required'
+                'name'=>'required',
+                'service'=>'required',
+                'contact'=>'required',
+                'status'=>'required',
+                'address'=>'required',
+                'content'=>'required',
             ]);
             $edit_id = $req->input('edit_id');
             // if file exist
             if($req->file('photo')!=null){
+
                 // delete file if exist
-                $grab_data = Blog::find($edit_id);//grab data
+                $grab_data = Vendor::find($edit_id);//grab data
                 $old_img = $grab_data->photo;
                 
                 if(File::exists(public_path('images/'.$old_img))){
                     File::delete(public_path('images/'.$old_img));
-                    /*
-                        Delete Multiple File like this way
-                        Storage::delete(['upload/test.png', 'upload/test2.png']);
-                    */
                 }else{
                     dd('File does not exists.');
                 }
@@ -134,9 +145,13 @@ class BlogController extends Controller
                 $newImageName = time().'.'.$req->photo->extension();
                 $result=  $req->photo->move(public_path('images'),$newImageName);
 
-                $blog = Blog::where('id',$req->input('edit_id'))
+                $vendor = Vendor::where('id',$req->input('edit_id'))
                 ->update([
-                    'title' => $req->input('title'),
+                    'name' => $req->input('name'),
+                    'service' => $req->input('service'),
+                    'contact' => $req->input('contact'),
+                    'status' => $req->input('status'),
+                    'address' => $req->input('address'),
                     'content' => $req->input('content'),
                     'photo' => $newImageName
                 ]);
@@ -145,14 +160,18 @@ class BlogController extends Controller
                     'message' => 'Category Updated Successfully',
                 ]);
             }else{
-                $blog = Blog::where('id',$req->input('edit_id'))
+                $vendor = Vendor::where('id',$req->input('edit_id'))
                 ->update([
-                    'title' => $req->input('title'),
-                    'content' => $req->input('content')
+                    'name' => $req->input('name'),
+                    'service' => $req->input('service'),
+                    'contact' => $req->input('contact'),
+                    'status' => $req->input('status'),
+                    'address' => $req->input('address'),
+                    'content' => $req->input('content'),
                 ]);
                 return Response()->json([
                     'status' => 200,
-                    'message' => 'Blog Updated Successfully',
+                    'message' => 'Vendor Updated Successfully',
                 ]);
             }   
         }

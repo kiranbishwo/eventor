@@ -74,6 +74,9 @@
 					    <a href="{{ url('/team')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Our Teams</span></a>
 					</li>
                     <li class="nav-item">
+					    <a href="{{ url('/vendor')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Vendor</span></a>
+					</li>
+                    <li class="nav-item">
 					    <a href="{{ url('/gallery')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-film"></i></span><span class="pcoded-mtext">Gallery</span></a>
 					</li>
                     
