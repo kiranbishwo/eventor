@@ -24,12 +24,9 @@ class VendorController extends Controller
         return response()->json([
             'vendor'=> $vendor,
         ]);
-        
     }
     // store 
     public function store(Request $req){
-        
-        
         $req->validate([
             'name'=>'required',
             'service'=>'required',

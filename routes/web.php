@@ -41,8 +41,11 @@ Route::get('/booking',[BookingController::class, 'index']);
 Route::get('/bookingDetails',[BookingController::class, 'bookingDetails']);
 Route::get('/editBooking',[BookingController::class, 'editBooking']);
 
+// setting route start
 Route::get('/setting',[SettingController::class, 'index']);
-Route::get('/editSetting',[SettingController::class, 'editSetting']);
+Route::get('/editSetting/{id}',[SettingController::class, 'editSetting']);
+Route::post('/editSetting/update',[SettingController::class, 'updatestore']);
+// setting route end
 
 Route::get('/package',[PackageController::class, 'index']);
 Route::get('/addNewPackage',[PackageController::class, 'addNewPackage']);

@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class team extends Model
-{ 
+class setting extends Model
+{
     use HasFactory;
-    protected $table = 'teams';
-    protected $fillable = ['name','password','contact','role','email','photo'];
+    protected $table = 'settings';
+    protected $fillable = ['brand','phone','mobile','email','metatext','metakey'];
 }

@@ -48,7 +48,7 @@
                             </div>
                            
                               <input class="btn btn-primary " name="submit" type="submit" value="Add Blog">
-                              <a class="btn btn-danger" href="blog" role="button">Back</a>
+                              <a class="btn btn-danger" href="{{ url('blog/') }}" role="button">Back</a>
                               <input class="btn btn-warning" type="reset" value="Reset">
                           </form>
                     </div>
@@ -56,7 +56,7 @@
             </div>
                 
 
-
+ 
         </div>
         <!-- [ Main Content ] end -->
     </div>

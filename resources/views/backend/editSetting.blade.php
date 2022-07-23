@@ -33,43 +33,40 @@
                         </div>
                     </div>
                     <div class="container">
-                        <form class="my-2 p-2">
+                        <form class="my-2 p-2" id="actionForm">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="brand">Brand Name</label>
-                                    <input type="text" class="form-control" name="brand" id="brand" placeholder="Brand Name" value="Himalayan Pyraid">
+                                    <input type="text" class="form-control" name="brand" id="brand" placeholder="Brand Name" value="@if(!empty($setting['brand'])){{$setting ['brand']}}@endif">
                                 </div>
                                 
                                 <div class="form-group col-md-6">
                                     <label for="phone">Phone Number</label>
-                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter Phone Name" value="+977 5475475">
+                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter Phone Name" value="@if(!empty($setting['phone'])){{$setting ['phone']}}@endif">
                                 </div>
                                 
                                 <div class="form-group col-md-6">
                                     <label for="mobile">Mobile Number</label>
-                                    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Enter Mobile Number" value="+977 9845252454">
+                                    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Enter Mobile Number" value="@if(!empty($setting['mobile'])){{$setting ['mobile']}}@endif">
                                 </div>
 								<div class="form-group col-md-6">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" value="hp@gmail.com">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" value="@if(!empty($setting['email'])){{$setting ['email']}}@endif">
                                 </div>
 								<div class="form-group col-md-6">
                                     <label for="metatext">Meta Text</label>
-									<textarea name="metatext" class="form-control" id="metatext" cols="30" rows="10">
-										Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus vitae vero aspernatur accusantium suscipit nostrum alias porro amet atque commodi?
+									<textarea name="metatext" class="form-control" id="metatext" rows="5">@if(!empty($setting['metatext'])){{$setting ['metatext']}}@endif
 									</textarea>
                                 </div>
 								<div class="form-group col-md-6">
-                                    <label for="metatext">Meta Keyword</label>
-									<textarea name="metatext" class="form-control" id="metatext" cols="30" rows="10">
-										Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus vitae vero aspernatur accusantium suscipit nostrum alias porro amet atque commodi?
+                                    <label for="metakey">Meta Keyword</label>
+									<textarea name="metakey" class="form-control" id="metakey" rows="5">@if(!empty($setting['metakey'])){{$setting ['metakey']}}@endif
 									</textarea>
                                 </div>
 								
                             </div>
-                              <input class="btn btn-primary " type="submit" value="Submit">
-                              <a class="btn btn-danger" href="setting" role="button">Back</a>
-                              <input class="btn btn-warning" type="reset" value="Reset">
+                              <input class="btn btn-primary " type="submit" value="Update Setting">
+                              <a class="btn btn-danger" href="{{ url('setting/') }}" role="button">Back</a>
 
                           </form>
                     </div>
@@ -82,22 +79,41 @@
         <!-- [ Main Content ] end -->
     </div>
 </div>
+@endsection
+@section('script')
+<script>
+$(document).ready(function(){
+    $('#summernote').summernote({
+        height: 300,
+    });
+    // add category
+    $("#actionForm").on("submit", function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+    
+        $.ajax({
+        type:'POST',
+        url:"{{ url('editSetting/update') }}",
+        cache:false,
+        data :formData,
+        contentType : false, // you can also use multipart/form-data replace of false
+        processData: false,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        //  data:{name:name, email:email, contact:contact, cource:cource},
+        dataType:'json',
+        success:function(data){
+            // console.log(data);
+            if(data.status ==200){
+                Command: toastr["success"]("Success", data.message);
+            }else{
+                Command: toastr["error"]("Failed",  data.message);
+            }    
+        }
+        });
 
-<div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLiveLabel">Conformation!!!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <p class="mb-0">Are you sure, you want to delete this content!</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn  btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn  btn-danger">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
+    });
+  
+    
+});
+</script>
 @endsection
