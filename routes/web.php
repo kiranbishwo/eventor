@@ -28,7 +28,6 @@ Route::get('index',[HomeController::class, 'index']);
 Route::get('/category',[CategoryController::class, 'index']);
 Route::post('/category/add',[CategoryController::class, 'store']);
 Route::post('/category/loadtable',[CategoryController::class, 'loadtable']);
-
 Route::get('/category/edit/{id}',[CategoryController::class, 'edit']);
 Route::post('/category/update',[CategoryController::class, 'update']);
 Route::get('/category/delete/{id}',[CategoryController::class, 'delete']);
@@ -53,5 +52,21 @@ Route::get('/addnewteam',[TeamController::class, 'addnewteam']);
 Route::get('/profile',[ProfileController::class, 'index']);
 Route::get('/updateProfile',[ProfileController::class, 'updateProfile']);
 
-Route::get('/blog',[BlogController::class, 'index']);
+
+
 Route::get('/addnewblog',[BlogController::class, 'addnewblog']);
+Route::post('/addnewblog/add',[BlogController::class, 'store']);
+
+// Blog routes
+Route::prefix('blog')->group(function () {
+    Route::controller(BlogController::class)->group(function () {
+        Route::name('blog.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/loadtable', 'loadtable')->name('loadtable');
+            Route::get('/delete/{id}', 'delete')->name('delete');
+            Route::post('/destroy', 'destroy')->name('destroy');
+            Route::post('/update', 'update')->name('update');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+        });
+    });
+});
