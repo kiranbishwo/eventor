@@ -26,7 +26,7 @@ class VendorController extends Controller
         ]);
         
     }
-    // store
+    // store 
     public function store(Request $req){
         
         
@@ -104,7 +104,7 @@ class VendorController extends Controller
             ]);
         }
     }
-// edit
+    // edit
     public function edit($id){
         $vendor = Vendor::Find($id);
         return view('backend.updatevendor', ['vendor'=>$vendor]);

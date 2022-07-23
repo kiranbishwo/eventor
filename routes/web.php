@@ -47,18 +47,30 @@ Route::get('/editSetting',[SettingController::class, 'editSetting']);
 Route::get('/package',[PackageController::class, 'index']);
 Route::get('/addNewPackage',[PackageController::class, 'addNewPackage']);
 
-Route::get('/team',[TeamController::class, 'index']);
+// team route start
 Route::get('/addnewteam',[TeamController::class, 'addnewteam']);
+Route::post('/addnewteam/add',[TeamController::class, 'store']);
+Route::prefix('team')->group(function () {
+    Route::controller(TeamController::class)->group(function () {
+        Route::name('team.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/loadtable', 'loadtable')->name('loadtable');
+            Route::get('/delete/{id}', 'delete')->name('delete');
+            Route::post('/destroy', 'destroy')->name('destroy');
+            Route::post('/update', 'update')->name('update');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+        });
+    });
+});
+// team route end
 
 Route::get('/profile',[ProfileController::class, 'index']);
 Route::get('/updateProfile',[ProfileController::class, 'updateProfile']);
 
 
-
+// Blog routes
 Route::get('/addnewblog',[BlogController::class, 'addnewblog']);
 Route::post('/addnewblog/add',[BlogController::class, 'store']);
-
-// Blog routes
 Route::prefix('blog')->group(function () {
     Route::controller(BlogController::class)->group(function () {
         Route::name('blog.')->group(function () {

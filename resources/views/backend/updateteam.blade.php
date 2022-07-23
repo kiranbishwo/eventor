@@ -14,7 +14,7 @@
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Add members: </a></li>
+                            <li class="breadcrumb-item"><a href="#!">Update members: </a></li>
                         </ul>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-6">
-                                <h5>Add Member</h5>
+                                <h5>Update Member</h5>
                             </div>
                         </div>
                         <div>
@@ -37,31 +37,33 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                           <label for="name">Full Name</label>
-                                          <input type="text" class="form-control" name="name"id="name" placeholder="Enter Name">
+                                          <input type="text" class="form-control" name="name"id="name" placeholder="Enter Name" value="{{$team ['name']}}">
+                                          <input type="hidden"  name="edit_id" id="edit_id" required value="{{$team ['id']}}">
+
                                         </div>
                                         <div class="form-group col-md-6">
-                                          <label for="password">Password</label>
+                                          <label for="password">New Password</label>
                                           <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                                         </div>
                                       </div>
                                       <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="contact">phone no:</label>
-                                             <input type="text" class="form-control" name="contact" id="contact" placeholder="phone no">
+                                             <input type="text" class="form-control" name="contact" id="contact" placeholder="phone no" value="{{$team ['contact']}}">
                                         </div>
                                             <div class="form-group col-md-6">
                                             <label for="role">Select role</label>
                                             <select class="custom-select" id="role" name="role">
-                                                <option selected disabled>Select Role</option>
-                                                <option value="Admin">Admin</option>
-                                                <option value="Manager">Manager</option>
-                                                <option value="Accountant">Accountant</option>
+                                                <option selected>Select Role</option>
+                                                <option value="Admin" @if($team['role']=="Admin") selected @endif>Admin</option>
+                                                <option value="Manager" @if($team['role']=="Manager") selected @endif>Manager</option>
+                                                <option value="Accountant" @if($team['role']=="Accountant") selected @endif>Accountant</option>
                                               </select>
                                         </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Email:</label>
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" value="{{$team ['email']}}">
                                          </div>
 
                                         <div class="form-row">
@@ -70,16 +72,15 @@
                                                 <input type="file" class="form-control-file" name="photo" id="photo" onchange="document.getElementById('previewImg').src = window.URL.createObjectURL(this.files[0])">
                                                 <div class="row my-3">
                                                     <div class="col-md-3">
-                                                        <img src="" id="previewImg" alt="" class="w-100">
+                                                        <img src="{{ url('images/'.$team['photo']) }}" id="previewImg" alt="" class="w-100">
                                                     </div>
                                                 </div>
                                            </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group">
-												<button type="submit" class="btn btn-primary">Add Member</button> 
+												<button type="submit" class="btn btn-primary">Update Member</button> 
 												<a class="btn btn-danger" href="{{ url('team/') }}" role="button">Back</a>
-                                                <input class="btn btn-warning" type="reset" value="Reset">
 											</div>
 
                                         </div>
@@ -109,7 +110,7 @@ $(document).ready(function(){
     
         $.ajax({
         type:'POST',
-        url:"{{ url('addnewteam/add') }}",
+        url:"{{ url('team/update') }}",
         cache:false,
         data :formData,
         contentType : false, // you can also use multipart/form-data replace of false
