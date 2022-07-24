@@ -1,3 +1,6 @@
+@if(!session()->has('loginId'))
+{{ redirect('login') }}
+@endif
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,8 +42,8 @@
 					<div class="main-menu-header">
 						<img class="img-radius" src="{{ url('backend/assets/images/user/avatar-2.jpg')}}" alt="User-Profile-Image">
 						<div class="user-details">
-							<span>John Doe</span>
-							<div id="more-details">UX Designer<i class="fa fa-chevron-down m-l-5"></i></div>
+							<span>{{ $data->name }}</span>
+							<div id="more-details">{{ $data->name }}<i class="fa fa-chevron-down m-l-5"></i></div>
 						</div>
 					</div>
 					<div class="collapse" id="nav-user-link">
@@ -184,7 +187,7 @@
 									<div class="pro-head">
 										<img src="{{ url('backend/assets/images/user/avatar-1.jpg')}}" class="img-radius" alt="User-Profile-Image">
 										<span>John Doe</span>
-										<a href="auth-signin" class="dud-logout" title="Logout">
+										<a href="{{ url('/logout')}}" class="dud-logout" title="Logout">
 											<i class="feather icon-log-out"></i>
 										</a>
 									</div>

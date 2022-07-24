@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\VendorController;
+use App\Http\Controllers\Backend\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,16 @@ use App\Http\Controllers\Backend\VendorController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',[HomeController::class, 'index']);
-Route::get('index',[HomeController::class, 'index']);
+// Login
+Route::get('/login',[LoginController::class, 'login']);
+Route::post('/loginadmin',[LoginController::class, 'postLogin']);
+Route::get('/dashboard',[LoginController::class, 'dashboard']);
+Route::get('/logout',[LoginController::class, 'logout']);
+
+
+
+Route::get('/',[LoginController::class, 'dashboard']);
+Route::get('index',[LoginController::class, 'dashboard']);
 
 // category
 Route::get('/category',[CategoryController::class, 'index']);

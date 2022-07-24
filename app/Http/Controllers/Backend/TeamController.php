@@ -32,10 +32,10 @@ class TeamController extends Controller
 
         $req->validate([
             'name'=>'required',
-            'password'=>'required',
+            'password'=>'required|max:12|min:5',
             'contact'=>'required',
             'role'=>'required',
-            'email'=>'required',
+            'email'=>'required|email|unique:teams',
             'photo'=>'required|mimes:jpg,png,jpg|max:5048',
         ]);
 
@@ -107,7 +107,6 @@ class TeamController extends Controller
     public function edit($id){
         $team = Team::Find($id);
         return view('backend.updateteam', ['team'=>$team]);
-       
     }
     // update
     public function update(Request $req){
@@ -116,7 +115,7 @@ class TeamController extends Controller
                 'name'=>'required',
                 'contact'=>'required',
                 'role'=>'required',
-                'email'=>'required',
+                'email'=>'required|email|unique:teams',
             ]);
             $edit_id = $req->input('edit_id');
             // if file exist
