@@ -82,7 +82,6 @@
 												<button type="submit" class="btn btn-primary">Update Member</button> 
 												<a class="btn btn-danger" href="{{ url('team/') }}" role="button">Back</a>
 											</div>
-
                                         </div>
                                   </form>
                             </div>

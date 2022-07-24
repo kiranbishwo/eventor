@@ -14,7 +14,7 @@ use Session;
 class LoginController extends Controller
 {
     public function login(){
-        return view('backend.login');
+        return view('auth.login');
     }
     // login
     public function postLogin(Request $req)
@@ -39,22 +39,18 @@ class LoginController extends Controller
             // ]);
             return redirect()->back()->with('error','Email not Registered.');
         }  
-        
-        // $credentials = $req->only('email', 'password');
-        // if (Auth::attempt($credentials)) {
-        //     return redirect()->intended('dashboard')
-        //         ->withSuccess('You have Successfully loggedin');
-        // }
-  
-        // return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
     }
     public function dashboard(){
         $data= array();
         if(Session::has('loginId')){
             $data = Team::where('id',Session::get('loginId'))->first();
-            return view('backend.index', ['data'=>$data]);
+            session(['name' => $data->name]);
+            session(['role' => $data->role]);
+            session(['photo' => $data->photo]);
+            return view('backend.index');
+
         }else{
-            return view('backend.login');
+            return view('auth.login');
         }
        
        

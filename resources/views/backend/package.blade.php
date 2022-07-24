@@ -39,27 +39,19 @@
                     </div>
                     <div class="card-body table-border-style">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table" id="datatable">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th style="width:60%">Package Name</th>
-                                        <th>Cost</th>
-                                        <th>Duration</th>
+                                        <th style="width:40%">Package Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Everest Trek</td>
-                                        <td>Rs 5000</td>
-                                        <td>14 days</td>
-                                        <td><a href="" type="button" class="btn btn-info btn-sm"><i class="feather mr-2 icon-info"></i>Edit</a></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalLive"><i class="feather mr-2 icon-slash"></i>Delete</button></td>
-                                    </tr>
-									
+                                  
                                 
                                 </tbody>
                             </table>
@@ -75,6 +67,7 @@
     </div>
 </div>
 
+{{-- delete model --}}
 <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -82,14 +75,94 @@
                 <h5 class="modal-title" id="exampleModalLiveLabel">Delete Conformation!!!</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
+            <form id="deleteForm">
             <div class="modal-body">
-                <p class="mb-0">Are you sure, you want to delete this content!</p>
+                <input type="hidden" id="delete_id" name="id">
+                <p class="mb-0">Are you sure, you want to delete this Package!</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn  btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn  btn-danger">Delete</button>
+                <button type="submit" class="btn  btn-danger">Delete</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script>
+$(document).ready(function(){
+    loadtable();        
+    function loadtable()
+    {
+        $.ajax({
+            type:"POST",
+            url : "{{ url('package/loadtable') }}",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            dataType: "json",
+            success: function(response){
+                // console.log(response);
+            $('tbody').html('');
+            $.each(response.package, function(key,item){
+                $('tbody').append(
+                ` <tr>
+                    <th scope="row">${item.id}</th>
+                    <th scope="row">${item.name}</th>
+                    <th scope="row">${item.category}</th>
+                    <th scope="row">${item.price}</th>
+                    <td><a href="{{ url('/package/edit/${item.id}') }}" class="btn btn-sm btn-warning edit-btn">Edit</a></td>
+                    <td><button value="${item.id}" class="btn btn-sm btn-danger delete-btn">Delete</button></td>
+                </tr>`
+                )
+            });
+            //activate datatable
+            $('#datatable').DataTable();
+            }
+        });         
+    }
+
+    // delete data
+    $(document).on('click', '.delete-btn', function(e){
+        e.preventDefault();
+        var del_id = $(this).val();
+        // console.log(del_id);
+        $("#exampleModalLive").modal('show');
+        $.ajax({
+            type:'GET',
+            url:"/package/delete/"+del_id,
+            success:function(data){
+            $('#delete_id').val(data.message.id);
+            }
+        });
+    })
+    // delete
+    $("#deleteForm").on("submit", function(e){
+    e.preventDefault();
+        var formData = new FormData(this);
+        $.ajax({
+            
+        url: "{{ url('/package/destroy') }}",
+        type : "POST",
+        cache:false,
+        data :formData,
+        contentType : false, // you can also use multipart/form-data replace of false
+        processData: false,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        dataType:'json',
+        success : function(data){
+            // console.log(data);
+            // loadtable();
+            if(data.status ==200){
+                loadtable();
+                Command: toastr["success"]("Success", data.message);
+            }else{
+            // $('.error_list').text('error occurs.')
+                Command: toastr["error"]("Failed", data.message);
+            }
+            $("#exampleModalLive").modal('hide');
+        }
+        });
+    });
+});
+</script>
 @endsection

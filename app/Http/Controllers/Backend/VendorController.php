@@ -78,7 +78,7 @@ class VendorController extends Controller
         }
     }
 
-
+    // destroy
     public function destroy(Request $req){
         if($req->ajax()){
 

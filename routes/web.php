@@ -24,16 +24,18 @@ use App\Http\Controllers\Backend\LoginController;
 |
 */
 // Login
-Route::get('/login',[LoginController::class, 'login']);
-Route::post('/loginadmin',[LoginController::class, 'postLogin']);
+// Route::get('/login',[LoginController::class, 'login']);
+Route::post('/loginadmin',[LoginController::class, 'postLogin'])->name('login');
 Route::get('/dashboard',[LoginController::class, 'dashboard']);
 Route::get('/logout',[LoginController::class, 'logout']);
-
-
 
 Route::get('/',[LoginController::class, 'dashboard']);
 Route::get('index',[LoginController::class, 'dashboard']);
 
+// Route::get('/',[HomeController::class, 'index']);
+// Route::get('index',[HomeController::class, 'index']);
+
+// login end
 // category
 Route::get('/category',[CategoryController::class, 'index']);
 Route::post('/category/add',[CategoryController::class, 'store']);
@@ -56,8 +58,23 @@ Route::get('/editSetting/{id}',[SettingController::class, 'editSetting']);
 Route::post('/editSetting/update',[SettingController::class, 'updatestore']);
 // setting route end
 
-Route::get('/package',[PackageController::class, 'index']);
+// package start
 Route::get('/addNewPackage',[PackageController::class, 'addNewPackage']);
+Route::post('/addNewPackage/add',[PackageController::class, 'store']);
+
+Route::prefix('package')->group(function () {
+    Route::controller(PackageController::class)->group(function () {
+        Route::name('package.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/loadtable', 'loadtable')->name('loadtable');
+            Route::get('/delete/{id}', 'delete')->name('delete');
+            Route::post('/destroy', 'destroy')->name('destroy');
+            Route::post('/update', 'update')->name('update');
+            Route::get('/edit/{id}', 'edit')->name('edit');
+        });
+    });
+});
+// package end
 
 // team route start
 Route::get('/addnewteam',[TeamController::class, 'addnewteam']);
@@ -76,9 +93,11 @@ Route::prefix('team')->group(function () {
 });
 // team route end
 
-Route::get('/profile',[ProfileController::class, 'index']);
-Route::get('/updateProfile',[ProfileController::class, 'updateProfile']);
-
+// profile start
+Route::get('/profile/{id}',[ProfileController::class, 'index']);
+Route::get('/updateProfile/{id}',[ProfileController::class, 'updateProfile']);
+Route::post('/updateProfile/update',[ProfileController::class, 'update']);
+// profile end
 
 // Blog routes
 Route::get('/addnewblog',[BlogController::class, 'addnewblog']);
@@ -113,3 +132,7 @@ Route::prefix('vendor')->group(function () {
 Route::get('/addnewvendor',[VendorController::class, 'addnewvendor']);
 Route::post('/addnewvendor/add',[VendorController::class, 'store']);
 // vendor route end
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

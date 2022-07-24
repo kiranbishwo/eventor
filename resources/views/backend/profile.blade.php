@@ -31,7 +31,7 @@
                                 <h5>Profile</h5>
                             </div>
                             <div class="col-6 text-right">
-                                <a href="updateProfile" class="btn btn-primary">Update Info</a>
+                                <a href="{{ url('/updateProfile/'.Session::get('loginId') ) }}" class="btn btn-primary">Update Info</a>
                             </div>
                         </div>
                         
@@ -42,7 +42,7 @@
 
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="{{ url('backend/assets/images/user/avatar-3.jpg') }}" alt="" class="w-100 rounded">
+                                <img src="{{ url('images/'.$team['photo']) }}" alt="" class="w-100 rounded">
                             </div>
                             <div class="col-md-9">
                                 <table class="table">
@@ -50,19 +50,19 @@
                                     <tbody>
                                         <tr>
                                             <td class="w-25"><b>Full Name</b></td>
-                                            <td>Anjali Chang</td>
+                                            <td>{{$team ['name']}}</td>
                                         </tr>
                                         <tr>
                                             <td class="w-25"><b>Phone</b></td>
-                                            <td>+977 6556566</td>
+                                            <td>{{$team ['contact']}}</td>
                                         </tr>
                                         <tr>
                                             <td class="w-25"><b>Email</b></td>
-                                            <td>hp@gmail.com</td>
+                                            <td>{{$team ['email']}}</td>
                                         </tr>
                                         <tr>
                                             <td class="w-25"><b>Role</b></td>
-                                            <td>Admin</td>
+                                            <td>{{$team ['role']}}</td>
                                         </tr>
                                         
                                     
@@ -99,7 +99,7 @@
                 <button type="submit" class="btn  btn-primary">Add  New Album</button>
             </div>
         </form>
-        </div>
+        </div> 
     </div>
 </div>
 

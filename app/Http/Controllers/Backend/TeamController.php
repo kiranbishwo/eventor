@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Exception;
+use Session;
 use App\Models\Team;
 use Response;
+use DB;
 
 class TeamController extends Controller
 {
@@ -115,7 +117,7 @@ class TeamController extends Controller
                 'name'=>'required',
                 'contact'=>'required',
                 'role'=>'required',
-                'email'=>'required|email|unique:teams',
+                'email'=>'required|email',
             ]);
             $edit_id = $req->input('edit_id');
             // if file exist
@@ -150,6 +152,9 @@ class TeamController extends Controller
                     'email' => $req->input('email'),
                     'photo' => $newImageName
                 ]);
+                if(Session::get('loginId') == $edit_id){
+                    session(['photo' => $newImageName]);
+                }
                 return Response()->json([
                     'status' => 200,
                     'message' => 'Member Updated Successfully',

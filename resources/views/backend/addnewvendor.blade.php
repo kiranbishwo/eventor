@@ -99,7 +99,7 @@ $(document).ready(function(){
     $('#summernote').summernote({
         height: 300,
     });
-    // add category
+    // add vendor
     $("#addForm").on("submit", function(e){
         e.preventDefault();
         var formData = new FormData(this);
