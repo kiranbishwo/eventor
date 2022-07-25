@@ -46,7 +46,21 @@ Route::get('/category/delete/{id}',[CategoryController::class, 'delete']);
 Route::post('/category/destroy',[CategoryController::class, 'destroy']);
 // Category End
 
-Route::get('/gallery',[GalleryController::class, 'index']);
+// Route::get('/gallery',[GalleryController::class, 'index']);
+Route::post('/gallery/add',[GalleryController::class, 'store']);
+// Route::post('/gallery/loadtable',[GalleryController::class, 'loadtable']);
+
+Route::prefix('gallery')->group(function () {
+    Route::controller(GalleryController::class)->group(function () {
+        Route::name('gallery.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/loadtable', 'loadtable')->name('loadtable');
+            Route::get('/delete/{id}', 'delete')->name('delete');
+            Route::post('/destroy', 'destroy')->name('destroy');
+            // Route::post('/add', 'add')->name('store');
+        });
+    });
+});
 
 Route::get('/booking',[BookingController::class, 'index']);
 Route::get('/bookingDetails',[BookingController::class, 'bookingDetails']);

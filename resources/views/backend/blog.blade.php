@@ -102,7 +102,7 @@ $(document).ready(function(){
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             dataType: "json",
             success: function(response){
-                console.log(response);
+                // console.log(response);
             $('tbody').html('');
             $.each(response.blog, function(key,item){
                 $('tbody').append(
