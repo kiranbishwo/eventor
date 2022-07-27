@@ -13,6 +13,13 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\VendorController;
 use App\Http\Controllers\Backend\LoginController;
 
+// for frontend
+
+use App\Http\Controllers\Frontend\FrontHomeController;
+use App\Http\Controllers\Frontend\FrontPackageController;
+use App\Http\Controllers\Frontend\FrontVendorController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,13 +30,36 @@ use App\Http\Controllers\Backend\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// for frontEnd homecontroller can handel blog, gallery, contact, aboutus page
+Route::get('/',[FrontHomeController::class, 'home']);
+Route::get('aboutus/',[FrontHomeController::class, 'aboutus']);
+Route::get('contactus/',[FrontHomeController::class, 'contactus']);
+Route::get('blogs/',[FrontHomeController::class, 'blogs']);
+Route::get('blog-detail/',[FrontHomeController::class, 'blogdetail']);
+Route::get('user-login/',[FrontHomeController::class, 'userlogin']);
+Route::get('user-register/',[FrontHomeController::class, 'userregister']);
+
+// manage packages
+Route::get('packages/',[FrontPackageController::class, 'index']);
+Route::get('packagedetail/',[FrontPackageController::class, 'packagedetail']);
+
+Route::get('vendor-login/',[FrontVendorController::class, 'vendorlogin']);
+Route::get('vendor-profile/',[FrontVendorController::class, 'vendorprofile']);
+Route::get('update-profile/',[FrontVendorController::class, 'vendorupdate']);
+Route::get('invoice/',[FrontVendorController::class, 'vendorinvoice']);
+Route::get('change-password/',[FrontVendorController::class, 'changepassword']);
+Route::get('mypackages/',[FrontVendorController::class, 'mypackages']);
+Route::get('addnew-package/',[FrontVendorController::class, 'addnewpackage']);
+
+
+
+
 // Login
 // Route::get('/login',[LoginController::class, 'login']);
 Route::post('/loginadmin',[LoginController::class, 'postLogin'])->name('login');
 Route::get('/dashboard',[LoginController::class, 'dashboard']);
 Route::get('/logout',[LoginController::class, 'logout']);
 
-Route::get('/',[LoginController::class, 'dashboard']);
 Route::get('index',[LoginController::class, 'dashboard']);
 
 // Route::get('/',[HomeController::class, 'index']);
@@ -150,3 +180,6 @@ Route::post('/addnewvendor/add',[VendorController::class, 'store']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+

@@ -1,0 +1,37 @@
+input[type=text],input[type=checkbox] ,input[type=date] ,input[type=password] ,input[type=email] ,input[type=file],.form-select , .textarea ,input[type=number] ,.btn{
+    background-color: transparent;
+    outline: none;
+    border-radius: 0;
+}
+
+input[type=text]:focus ,input[type=date]:focus ,input[type=password]:focus ,input[type=email]:focus ,.form-select:focus ,input[type=file]:focus , .textarea:focus ,input[type=number]:focus ,.btn:focus{
+    box-shadow: none;
+    outline: 0;
+    background-color: transparent;
+    border: 1px solid #fa1f2acc;
+    border-radius: 0;
+}
+input[type=text]:active ,input[type=date]:active ,input[type=password]:active ,input[type=email]:active, .form-select:active ,input[type=file]:active , .textarea:active ,input[type=number]:active ,.btn:active{
+    box-shadow: none;
+    border: 1px solid #fa1f2acc;
+    background-color: transparent;
+    outline: none;
+    border-radius: 0;
+}
+.login_nav{
+    width: 100%
+}
+.login_nav a{
+    text-decoration: none;
+    color: black;
+    width:100%;
+    text-align: left;
+    display: block;
+    padding: 10px 7px;
+}
+.login_nav a:hover, .login_nav a.active{
+    text-decoration: none;
+    color: white;
+    border-radius: 3px;
+    background-color:#FF9100;;
+}
