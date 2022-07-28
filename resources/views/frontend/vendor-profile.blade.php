@@ -40,22 +40,22 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>:</td>
-                                    <td>kiran bishow</td>
+                                    <td>{{ $data->name }}</td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
                                     <td>:</td>
-                                    <td>kiran@gmail.com</td>
+                                    <td>{{ $data->email }}</td>
                                 </tr>
                                 <tr>
                                     <td>Contact</td>
                                     <td>:</td>
-                                    <td>949589343</td>
+                                    <td>{{ $data->contact }}</td>
                                 </tr>
                                 <tr>
                                     <td>Address</td>
                                     <td>:</td>
-                                    <td>Pokhara</td>
+                                    <td>{{ $data->address }}</td>
                                 </tr>
                             </form>
                         </table>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Vendor;
+use Session;
 
 class FrontVendorController extends Controller
 {
@@ -11,10 +13,24 @@ class FrontVendorController extends Controller
         return view('frontend.vendor-login');
     }
     public function vendorprofile(){
-        return view('frontend.vendor-profile');
+        $data= array();
+        if(Session::has('vendorLoginId')){
+            $data = Vendor::where('id',Session::get('vendorLoginId'))->first();
+            session(['vendorName' => $data->name]);
+            session(['vendorEmail' => $data->email]);
+            session(['vendorCat' => $data->category]);
+            return view('frontend.vendor-profile', ['data'=>$data]);
+
+        }else{
+            return view('frontend.vendor-login');
+        }
+
     }
+
+
     public function vendorupdate(){
-        return view('frontend.update-profile',['mode'=>'vendor']);
+        $data = Vendor::where('id',Session::get('vendorLoginId'))->first();
+        return view('frontend.update-profile', ['mode'=>'vendor','data'=>$data]);
     }
     public function vendorinvoice(){
         return view('frontend.invoice');

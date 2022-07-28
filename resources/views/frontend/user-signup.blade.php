@@ -53,7 +53,8 @@
                     <div class="form-outline mb-2">
                         <label class="form-label" for="password_confirmation">Confirm Password</label>
                         <input type="password" id="password_confirmation" class="form-control " name="password_confirmation" placeholder="Confirm your password" />
-                        <span class="text-danger" id="cPasswordError"></span>
+                        
+                        
 
                     </div>
                     

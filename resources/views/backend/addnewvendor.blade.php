@@ -39,6 +39,10 @@
                               <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" required>
                             </div>
                             <div class="form-group">
+                                <label for="email">Email </label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" required >
+                            </div>
+                            <div class="form-group">
                                 <label for="service">Service type</label>
                                 <select name="service" id="service" class="form-control">
                                     <option value="Transportation">Transportation</option>
@@ -75,6 +79,10 @@
                                         <img src="" id="previewImg" alt="" class="w-100">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact">Password (Default : eventor)</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Contact Number" required value="eventor">
                             </div>
                            
                               <input class="btn btn-primary " name="submit" type="submit" value="Add Vendor">

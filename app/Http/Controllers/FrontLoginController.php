@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Exception;
 use Session;
 use App\Models\User;
+use App\Models\Vendor;
 use Response;
 
 class FrontLoginController extends Controller
@@ -71,6 +72,32 @@ class FrontLoginController extends Controller
     public function logout(){
         Session::flush();
         return redirect('/user-login');
+    }
+    public function vendorLogout(){
+        Session::flush();
+        return redirect('/vendor-login');
+    }
+    // login
+    public function loginvendor(Request $req){
+        // dd($req);
+        $req->validate([
+            'email'=>'required|email',
+            'password' => 'min:6|required',
+        ]);
+
+        $find = Vendor::where('email',$req->input('email'))->first();
+        if($find){
+            if(Hash::check($req->password, $find->password)){
+                $req->session()->put('vendorLoginId',$find->id);
+                return redirect('/vendor-profile/');
+                
+            }else{
+                return redirect()->back()->with('error','Password Not Matched.');
+            }
+        }else{
+            return redirect()->back()->with('error','Email not Registered.');
+        }
+       
     }
 
 }

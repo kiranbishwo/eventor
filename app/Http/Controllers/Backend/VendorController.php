@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Support\Facades\File; 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Exception;
 use App\Models\Vendor;
@@ -27,12 +28,15 @@ class VendorController extends Controller
     }
     // store 
     public function store(Request $req){
+        // dd($req);
         $req->validate([
             'name'=>'required',
+            'email'=>'required|email|unique:vendors',
             'service'=>'required',
             'contact'=>'required',
             'status'=>'required',
             'address'=>'required',
+            'password'=>'required|min:6',
             'content'=>'required',
             'photo'=>'required|mimes:jpg,png,jpg|max:5048',
         ]);
@@ -47,10 +51,12 @@ class VendorController extends Controller
         if($req->ajax()){
             $vendor = Vendor::create([
                 'name' => $req->input('name'),
+                'email' => $req->input('email'),
                 'service' => $req->input('service'),
                 'contact' => $req->input('contact'),
                 'status' => $req->input('status'),
                 'address' => $req->input('address'),
+                'password' => Hash::make($req->input('password')),
                 'content' => $req->input('content'),
                 'photo' => $newImageName
             ]);

@@ -8,29 +8,39 @@
                 <img src="{{ url('frontend/assets/img/login.png')}}" class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-5 offset-xl-1">
-                <form>
-
-
-
-                    <!--title  -->
+                <form action="{{ url('login-vendor') }}" method="post">
                     <div class="form-outline mb-4">
                         <h3>Vendor Login</h3>
                     </div>
+                    @csrf
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example3">Email address</label>
-                        <input type="email" id="form3Example3" class="form-control " placeholder="Enter a valid email address" />
+                        <label class="form-label" for="email">User Name</label>
+                        <input type="email" id="email" name="email" class="form-control " placeholder="Enter your username" />
+                        @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-3">
-                        <label class="form-label" for="form3Example4">Password</label>
-                        <input type="password" id="form3Example4" class="form-control " placeholder="Enter password" />
+                        <label class="form-label" for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control " placeholder="Enter password" />
+                        @error('password')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
-                    <div class="form-group text-center">
-                      <input type="submit" name="" id="" class="genric-btn primary circle arrow" value="Login">
-                      <a href="vendor-profile">vendor profile</a>
+
+                    
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <button type="submit" class="genric-btn primary circle arrow" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+
                     </div>
+                    @if(session('error'))
+                        <div class="alert bg-danger text-white mt-3">{{session('error')}}</div>
+                    @endif
+
                 </form>
             </div>
         </div>

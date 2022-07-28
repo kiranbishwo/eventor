@@ -47,13 +47,19 @@ Route::get('/filter-category/{id}',[FrontPackageController::class, 'showpackage'
 
 
 Route::get('vendor-login/',[FrontVendorController::class, 'vendorlogin']);
+
+
+
 Route::get('vendor-profile/',[FrontVendorController::class, 'vendorprofile']);
 Route::get('update-profile/',[FrontVendorController::class, 'vendorupdate']);
 Route::get('invoice/',[FrontVendorController::class, 'vendorinvoice']);
 Route::get('change-password/',[FrontVendorController::class, 'changepassword']);
 Route::get('mypackages/',[FrontVendorController::class, 'mypackages']);
 Route::get('addnew-package/',[FrontVendorController::class, 'addnewpackage']);
-
+// update vendor and user profile
+Route::post('update-profile/',[FrontUserController::class, 'updateprofile']);
+Route::post('password-change/',[FrontUserController::class, 'passwordchange']);
+// update vendor and user profile
 
 // usercontroller
 Route::get('user-profile/',[FrontUserController::class, 'userprofile']);
@@ -65,12 +71,30 @@ Route::get('user-change-password/',[FrontUserController::class, 'userchangepassw
 Route::get('user-login/',[FrontLoginController::class, 'userlogin']);
 Route::post('login-user/',[FrontLoginController::class, 'loginuser']);//actual login user
 Route::get('user-logout/',[FrontLoginController::class, 'logout']);
+// vendor auth
+Route::post('login-vendor/',[FrontLoginController::class, 'loginvendor']);
+Route::get('vendor-logout/',[FrontLoginController::class, 'vendorLogout']);
 
 
 Route::get('user-register/',[FrontHomeController::class, 'userregister']);
 Route::post('register-user/',[FrontLoginController::class, 'registeruser']);//actual residter
 
 // user auth end?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
