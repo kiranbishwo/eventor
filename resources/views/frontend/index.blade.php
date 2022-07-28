@@ -139,78 +139,33 @@
             </div>
             <div class="row">
 
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_special_cource">
-                        <img src="{{ url('frontend/assets/img/special_cource_1.png')}}" class="special_img" alt="">
-                        <div class="special_cource_text text-center">
-                            <a href="course-details.html" class="btn_4">discount</a>
-
-                            <h4>$130.00</h4>
-
-                            <h3>Package</h3>
-
-                            <a href="package.html"> <button class="genric-btn primary circle ">Explore</button></a>
-                            <a href="purchase.html">
-                                <button class="genric-btn primary circle ">Buy  Now</button></a>
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_special_cource">
-                        <img src="{{ url('frontend/assets/img/special_cource_2.png')}}" class="w-100" alt="" height="250px">
-                        <div class="special_cource_text p-4">
-                            <!-- <a href="course-details.html" class="btn_4">Design  </a> -->
-                            <p>Category</p>
-                            <a href="course-details.html">
-                                <h3 class="mt-2">Web UX/UI Design </h3>
-                            </a>
-                            <p  style="color: #0C2E60;"><span class="h3 bold ">Rs. 300</span> &nbsp;&nbsp;<span><del>Rs100</del></span></p>
-                            
-                            <div class="row justify-content-around mt-3">
-                                <a href="purchase.html" class=" col-5 genric-btn primary circle w-50" >Buy</a>
-                                <a href="course-details.html" class="col-5 genric-btn primary circle w-50" >Explore</a>
-                            </div>
+            @forelse($package as $package)
+            <div class="col-sm-6 col-lg-4">
+                <div class="single_special_cource">
+                    <img src="{{ url('images/'.$package->photo) }}" class="w-100" alt="" height="250px">
+                    <div class="special_cource_text p-4">
+                        <!-- <a href="packagedetail" class="btn_4">Design  </a> -->
+                        <p>{{ $package->category }}</p>
+                        <a href="packagedetail">
+                            <h3 class="mt-2">{{ $package->name }}</h3>
+                        </a>
+                        <p  style="color: #0C2E60;"><span class="h3 bold ">Rs. {{ $package->price }}</span> &nbsp;&nbsp;<span><del>Rs100</del></span></p>
                         
+                        <div class="row justify-content-around mt-3">
+                            <a href="purchase.html" class=" col-5 genric-btn primary circle w-50" >Buy</a>
+                            <a href="packagedetail" class="col-5 genric-btn primary circle w-50" >Explore</a>
                         </div>
-
+                    
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_special_cource">
-                        <img src="{{ url('frontend/assets/img/special_cource_3.png')}}" class="special_img" alt="">
-                        <div class="special_cource_text">
-                            <a href="course-details.html" class="btn_4">Wordpress</a>
-                            <h4>$140.00</h4>
-                            <a href="course-details.html">
-                                <h3>Wordpress Development</h3>
-                            </a>
-                            <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
-                            <div class="author_info">
-                                <div class="author_img">
-                                    <img src="{{ url('frontend/assets/img/author/author_3.png')}}" alt="">
-                                    <div class="author_info_text">
-                                        <p>Conduct by:</p>
-                                        <h5><a href="#">James Well</a></h5>
-                                    </div>
-                                </div>
-                                <div class="author_rating">
-                                    <div class="rating">
-                                        <a href="#"><img src="{{ url('frontend/assets/img/icon/color_star.svg')}}" alt=""></a>
-                                        <a href="#"><img src="{{ url('frontend/assets/img/icon/color_star.svg')}}" alt=""></a>
-                                        <a href="#"><img src="{{ url('frontend/assets/img/icon/color_star.svg')}}" alt=""></a>
-                                        <a href="#"><img src="{{ url('frontend/assets/img/icon/color_star.svg')}}" alt=""></a>
-                                        <a href="#"><img src="{{ url('frontend/assets/img/icon/star.svg')}}" alt=""></a>
-                                    </div>
-                                    <p>3.8 Ratings</p>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
                 </div>
+            </div>
+            @empty
+            <div class="col-12 text-center ">
+                <h2 style="font-size:40px" class="text-white bg-danger alert">Opps!!! No Package found.</h2>
+            </div>
+                
+            @endforelse
             </div>
         </div>
     </section>
@@ -371,48 +326,29 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-lg-4 col-xl-4">
-                    <div class="single-home-blog">
-                        <div class="card">
-                            <img src="{{ url('frontend/assets/img/blog/blog_1.png')}}" class="card-img-top" alt="blog" height="250px">
-                            <div class="card-body">
-                                <p class="bold">Mt kiran</p>
-                                <a href="blog.html">
-                                    <h5 class="card-title">Dry beginning sea over tree</h5>
-                                </a>
-                                <a href="#" class="btn_4 float-right">Design</a>
+                @forelse($blog as $blog)
+
+                    <div class="col-sm-6 col-lg-4 col-xl-4">
+                        <div class="single-home-blog">
+                            <div class="card">
+                                <img src="{{ url('images/'.$blog->photo) }}" class="card-img-top" alt="blog" height="250px">
+                                <div class="card-body">
+                                    <p class="bold">Mt kiran</p>
+                                    <a href="{{ url('blog-detail/'.$blog->id) }}">
+                                        <h5 class="card-title">{{ $blog->title }}</h5>
+                                    </a>
+                                    <a href="{{ url('blog-detail/'.$blog->id) }}" class="btn_4 float-right">Read More</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                @empty
+                <div class="col-12 text-center ">
+                    <h2 style="font-size:40px" class="text-white bg-danger alert">Opps!!! No Blog found.</h2>
                 </div>
-                <div class="col-sm-6 col-lg-4 col-xl-4">
-                    <div class="single-home-blog">
-                        <div class="card">
-                            <img src="{{ url('frontend/assets/img/blog/blog_2.png')}}" class="card-img-top" alt="blog" height="250px">
-                            <div class="card-body">
-                                <p class="bold">Mt kiran</p>
-                                <a href="blog.html">
-                                    <h5 class="card-title">Dry beginning sea over tree</h5>
-                                </a>
-                                <a href="#" class="btn_4 float-right">Design</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4 col-xl-4">
-                    <div class="single-home-blog">
-                        <div class="card">
-                            <img src="{{ url('frontend/assets/img/blog/blog_3.png')}}" class="card-img-top" alt="blog" height="250px">
-                            <div class="card-body">
-                                <p class="bold">Mt kiran</p>
-                                <a href="blog.html">
-                                    <h5 class="card-title">Dry beginning sea over tree</h5>
-                                </a>
-                                <a href="#" class="btn_4 float-right">Design</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    
+                @endforelse
+                
             </div>
         </div>
     </section>

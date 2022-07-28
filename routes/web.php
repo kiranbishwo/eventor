@@ -18,6 +18,8 @@ use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Frontend\FrontHomeController;
 use App\Http\Controllers\Frontend\FrontPackageController;
 use App\Http\Controllers\Frontend\FrontVendorController;
+use App\Http\Controllers\Frontend\FrontUserController;
+use App\Http\Controllers\FrontLoginController;
 
 
 /*
@@ -30,18 +32,19 @@ use App\Http\Controllers\Frontend\FrontVendorController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // for frontEnd homecontroller can handel blog, gallery, contact, aboutus page
 Route::get('/',[FrontHomeController::class, 'home']);
 Route::get('aboutus/',[FrontHomeController::class, 'aboutus']);
 Route::get('contactus/',[FrontHomeController::class, 'contactus']);
 Route::get('blogs/',[FrontHomeController::class, 'blogs']);
-Route::get('blog-detail/',[FrontHomeController::class, 'blogdetail']);
-Route::get('user-login/',[FrontHomeController::class, 'userlogin']);
-Route::get('user-register/',[FrontHomeController::class, 'userregister']);
+Route::get('blog-detail/{title}',[FrontHomeController::class, 'blogdetail']);
 
 // manage packages
 Route::get('packages/',[FrontPackageController::class, 'index']);
-Route::get('packagedetail/',[FrontPackageController::class, 'packagedetail']);
+Route::get('packagedetail/{id}',[FrontPackageController::class, 'packagedetail']);
+Route::get('/filter-category/{id}',[FrontPackageController::class, 'showpackage']);
+
 
 Route::get('vendor-login/',[FrontVendorController::class, 'vendorlogin']);
 Route::get('vendor-profile/',[FrontVendorController::class, 'vendorprofile']);
@@ -50,6 +53,32 @@ Route::get('invoice/',[FrontVendorController::class, 'vendorinvoice']);
 Route::get('change-password/',[FrontVendorController::class, 'changepassword']);
 Route::get('mypackages/',[FrontVendorController::class, 'mypackages']);
 Route::get('addnew-package/',[FrontVendorController::class, 'addnewpackage']);
+
+
+// usercontroller
+Route::get('user-profile/',[FrontUserController::class, 'userprofile']);
+Route::get('user-update-profile/',[FrontUserController::class, 'userupdate']);
+Route::get('user-change-password/',[FrontUserController::class, 'userchangepassword']);
+
+
+// user authentication
+Route::get('user-login/',[FrontLoginController::class, 'userlogin']);
+Route::post('login-user/',[FrontLoginController::class, 'loginuser']);//actual login user
+Route::get('user-logout/',[FrontLoginController::class, 'logout']);
+
+
+Route::get('user-register/',[FrontHomeController::class, 'userregister']);
+Route::post('register-user/',[FrontLoginController::class, 'registeruser']);//actual residter
+
+// user auth end?
+
+
+
+
+
+
+
+
 
 
 

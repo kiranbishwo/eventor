@@ -19,7 +19,7 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="Phoenixcoded" />
 	<!-- Favicon icon -->
-	{{-- <link rel="icon" href="{{ url('backend/assets/images/favicon.ico')}}" type="image/x-icon"> --}}
+	<link rel="icon" href="{{ url('backend/assets/images/favicon.png')}}" type="image/x-icon">
 
 	<!-- vendor css -->
 	<link rel="stylesheet" href="{{ url('backend/assets/css/style.css')}}">
@@ -30,7 +30,7 @@
 </head>
 
 <!-- [ auth-signin ] start -->
-{{-- <div class="auth-wrapper">
+<div class="auth-wrapper">
 	<div class="auth-content text-center">
 		<div class="card borderless">
 			<div class="row align-items-center ">
@@ -42,9 +42,11 @@
                             @csrf
                             <div class="form-group mb-3">
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Email address">
+								
                             </div>
                             <div class="form-group mb-4">
                                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+								
                             </div>
                             <button class="btn btn-block btn-primary mb-4" type="submit" name="submit">Signin</button>
                         </form>
@@ -60,7 +62,7 @@
 			</div>
 		</div>
 	</div>
-</div> --}}
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

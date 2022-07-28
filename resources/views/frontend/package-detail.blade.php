@@ -6,55 +6,14 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 course_details_left">
-                    <h3 class="mb-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur, delectus.</h3>
+                    <h3 class="mb-3">{{ $package->name }}</h3>
                     <div class="main_image w-100">
                         <img class="img-fluid w-100" src="{{ url('frontend/assets/img/single_cource.png')}}" alt="" >
                     </div>
                     <div class="content_wrapper">
-                        <h4 class="title_top">Objectives</h4>
+                        <h4 class="title">Description</h4>
                         <div class="content">
-                            When you enter into any new area of science, you almost always find yourself with a
-                            baffling new language of
-                            technical terms to learn before you can converse with the experts. This is certainly
-                            true in astronomy both in
-                            terms of terms that refer to the cosmos and terms that describe the tools of the trade,
-                            the most prevalent
-                            being the telescope.
-                            <br>
-                            <br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut aliquip ex ea
-                            commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum. Lorem ipsum dolor sit
-                            amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim
-                            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat. Duis aute
-                            irure dolor in reprehenderit in voluptate velit esse cillum.
-                        </div>
-
-                        <h4 class="title">Eligibility</h4>
-                        <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
-                            <br>
-                            <br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut aliquip ex ea
-                            commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum. Lorem ipsum dolor sit
-                            amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim
-                            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat. Duis aute
-                            irure dolor in reprehenderit in voluptate velit esse cillum.
+                            {{ $package->content }}
                         </div>
                     </div>
                 </div>
@@ -66,13 +25,13 @@
                             <li>
                                 <a class="justify-content-between d-flex" href="#">
                                     <p>Package Name</p>
-                                    <span class="color">George Mathews</span>
+                                    <span class="color">{{ $package->name }}</span>
                                 </a>
                             </li>
                             <li>
                                 <a class="justify-content-between d-flex" href="#">
                                     <p>Package Charge </p>
-                                    <span>$230</span>
+                                    <span>Rs. {{ $package->price }}</span>
                                 </a>
                             </li>
                             <li>

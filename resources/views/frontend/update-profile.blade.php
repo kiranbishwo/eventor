@@ -6,10 +6,16 @@
         <div class="container" style="margin-top:150px">
             <div class="container rounded bg-white mt-5 mb-5" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                 <div class="row p-4">
-                    @include('frontend.profile-sidenve')
+                    @if($mode =='user')
+                        @include('frontend.userProfile-sidenav')
+                    @endif
+                    @if($mode =='vendor')
+                        @include('frontend.profile-sidenve')
+                    @endif
+
                     
                     <div class="col-md-8">
-                        <h2>Update My Profile</h2>
+                        <h2>Update My Profile </h2>
                         <hr>
                         <table class="table table-borderless mt-4">
                             <form action="">

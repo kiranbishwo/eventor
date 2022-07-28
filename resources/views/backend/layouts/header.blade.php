@@ -15,7 +15,7 @@
     <meta name="author" content="Phoenixcoded" />
 	<meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ url('backend/assets/images/favicon.png')}}" type="image/x-icon">
 
     <!-- vendor css -->
     <link rel="stylesheet" href="{{ url('backend/assets/css/style.css') }}">

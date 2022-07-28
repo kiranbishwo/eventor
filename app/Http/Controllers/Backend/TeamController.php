@@ -81,7 +81,6 @@ class TeamController extends Controller
         }
     }
 
-
     public function destroy(Request $req){
         if($req->ajax()){
 

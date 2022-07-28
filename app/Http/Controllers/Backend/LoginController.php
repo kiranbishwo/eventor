@@ -14,8 +14,8 @@ use Session;
 class LoginController extends Controller
 {
     public function login(){
-        return view('auth.login');
-    }
+        return view('backend.login');
+    } 
     // login
     public function postLogin(Request $req)
     {
@@ -50,7 +50,7 @@ class LoginController extends Controller
             return view('backend.index');
 
         }else{
-            return view('auth.login');
+            return view('backend.login');
         }
        
        

@@ -4,11 +4,18 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Category;
+use App\Models\Blog;
+use DB;
+ 
 class FrontHomeController extends Controller
 {
+    
     public function home(){
-        return view('frontend.index');
+        $blog = DB::table('blogs')->take(3)->get();
+        $package = DB::table('packages')->take(3)->get();
+        // return view('frontend.layout.header', ['category'=>$category]);
+        return view('frontend.index', ['package'=>$package,'blog'=>$blog]);
         
     }
     public function aboutus(){
@@ -18,14 +25,16 @@ class FrontHomeController extends Controller
         return view('frontend.contact');
     }
     public function blogs(){
-        return view('frontend.blog');
+        $blog = DB::table('blogs')->take(5)->get();
+        return view('frontend.blog', ['blog'=>$blog]);
     }
-    public function blogdetail(){
-        return view('frontend.blog-detail');
+    public function blogdetail($id){
+        $blog = Blog::find($id);
+        $blogs = DB::table('blogs')->take(5)->get();
+
+        return view('frontend.blog-detail',['blog'=>$blog, 'blogs'=>$blogs]);
     }
-    public function userlogin(){
-        return view('frontend.user-login');
-    }
+   
     public function userregister(){
         return view('frontend.user-signup');
     }

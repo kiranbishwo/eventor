@@ -14,13 +14,13 @@ class FrontVendorController extends Controller
         return view('frontend.vendor-profile');
     }
     public function vendorupdate(){
-        return view('frontend.update-profile');
+        return view('frontend.update-profile',['mode'=>'vendor']);
     }
     public function vendorinvoice(){
         return view('frontend.invoice');
     }
     public function changepassword(){
-        return view('frontend.change-password');
+        return view('frontend.change-password',['mode'=>'vendor']);
     }
     public function mypackages(){
         return view('frontend.mypackages');

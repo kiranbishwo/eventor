@@ -28,7 +28,7 @@
  
     <!--main important userprofile css for this page-->
     <link rel="stylesheet" href="{{ url('frontend/assets/css/userprofile.css')}}" />
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
@@ -39,6 +39,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"  />
 
     @yield('style')
 
@@ -52,7 +53,7 @@
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg navbar-light">
               
-              <a class="navbar-brand logo_2" href="/">
+              <a class="navbar-brand logo_2" href="{{ url('/') }}">
                 <img src="{{ url('frontend/assets/img/logo.png')}}" alt="logo" width="150"/>
               </a>
               <button
@@ -73,7 +74,7 @@
               >
                 <ul class="navbar-nav align-items-center">
                   <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="{{ url('/') }}">Home</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a
@@ -88,29 +89,28 @@
                       Category
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="single-blog.html"
-                        >Single blog</a
-                      >
-                      <a class="dropdown-item" href="elements.html">Elements</a>
+                        @foreach($category as $category)
+                          <a class="dropdown-item" href="{{ url("filter-category/".$category->name) }}">{{ $category->name }}</a>
+                        @endforeach
                     </div>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="packages">Packages</a>
+                    <a class="nav-link" href="{{ url('packages') }}">Packages</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="blogs">Blog</a>
+                    <a class="nav-link" href="{{ url('blogs') }}">Blog</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="vendor-login">Vendor Login</a>
+                    <a class="nav-link" href="{{ url('vendor-login') }}">Vendor Login</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="aboutus">About</a>
+                    <a class="nav-link" href="{{ url('aboutus') }}">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="contactus">Contact</a>
+                    <a class="nav-link" href="{{ url('contactus') }}">Contact</a>
                   </li>
                   <li class="d-none d-lg-block">
-                    <a class="btn_1" href="user-login">Login</a>
+                    <a class="btn_1" href="{{ url('user-login') }}">Login</a>
                   </li>
                 </ul>
               </div>

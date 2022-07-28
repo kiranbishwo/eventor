@@ -51,7 +51,9 @@
 
 <!-- jquery plugins here-->
 <!-- jquery -->
-<script src="{{ url('frontend/assets/js/jquery-1.12.1.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{{-- <script src="{{ url('frontend/assets/js/jquery-1.12.1.min.js')}}"></script> --}}
 <!-- popper js -->
 <script src="{{ url('frontend/assets/js/popper.min.js')}}"></script>
 <!-- bootstrap js -->

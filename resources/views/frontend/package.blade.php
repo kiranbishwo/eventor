@@ -38,67 +38,40 @@
                     <h2>Results :</h2>
                 </div>
             </div>
-        <div class="row">
-            <div class="col-sm-6 col-lg-4">
-                <div class="single_special_cource">
-                    <img src="{{ url('frontend/assets/img/special_cource_2.png')}}" class="w-100" alt="" height="250px">
-                    <div class="special_cource_text p-4">
-                        <!-- <a href="packagedetail" class="btn_4">Design  </a> -->
-                        <p>Category</p>
-                        <a href="packagedetail">
-                            <h3 class="mt-2">Web UX/UI Design </h3>
-                        </a>
-                        <p  style="color: #0C2E60;"><span class="h3 bold ">Rs. 300</span> &nbsp;&nbsp;<span><del>Rs100</del></span></p>
-                        
-                        <div class="row justify-content-around mt-3">
-                            <a href="purchase.html" class=" col-5 genric-btn primary circle w-50" >Buy</a>
-                            <a href="packagedetail" class="col-5 genric-btn primary circle w-50" >Explore</a>
-                        </div>
-                    
-                    </div>
+            <div class="row">
+            
+            @forelse($package as $package)
+            
 
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="single_special_cource">
-                    <img src="{{ url('frontend/assets/img/special_cource_2.png')}}" class="w-100" alt="" height="250px">
-                    <div class="special_cource_text p-4">
-                        <!-- <a href="packagedetail" class="btn_4">Design  </a> -->
-                        <p>Category</p>
-                        <a href="packagedetail">
-                            <h3 class="mt-2">Web UX/UI Design </h3>
-                        </a>
-                        <p  style="color: #0C2E60;"><span class="h3 bold ">Rs. 300</span> &nbsp;&nbsp;<span><del>Rs100</del></span></p>
+            
+                <div class="col-sm-6 col-lg-4">
+                    <div class="single_special_cource">
+                        <img src="{{ url('images/'.$package->photo) }}" class="w-100" alt="" height="250px">
+                        <div class="special_cource_text p-4">
+                            <!-- <a href="packagedetail" class="btn_4">Design  </a> -->
+                            <p>{{ $package->category }}</p>
+                            <a href="packagedetail">
+                                <h3 class="mt-2">{{ $package->name }}</h3>
+                            </a>
+                            <p  style="color: #0C2E60;"><span class="h3 bold ">Rs. {{ $package->price }}</span> &nbsp;&nbsp;<span><del>Rs100</del></span></p>
+                            
+                            <div class="row justify-content-around mt-3">
+                                <a href="purchase.html" class=" col-5 genric-btn primary circle w-50" >Buy</a>
+                                <a href="{{ url('packagedetail/'.$package->id) }}" class="col-5 genric-btn primary circle w-50" >Explore</a>
+                            </div>
                         
-                        <div class="row justify-content-around mt-3">
-                            <a href="purchase.html" class=" col-5 genric-btn primary circle w-50" >Buy</a>
-                            <a href="packagedetail" class="col-5 genric-btn primary circle w-50" >Explore</a>
                         </div>
-                    
-                    </div>
 
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-                <div class="single_special_cource">
-                    <img src="{{ url('frontend/assets/img/special_cource_2.png')}}" class="w-100" alt="" height="250px">
-                    <div class="special_cource_text p-4">
-                        <!-- <a href="packagedetail" class="btn_4">Design  </a> -->
-                        <p>Category</p>
-                        <a href="packagedetail">
-                            <h3 class="mt-2">Web UX/UI Design </h3>
-                        </a>
-                        <p  style="color: #0C2E60;"><span class="h3 bold ">Rs. 300</span> &nbsp;&nbsp;<span><del>Rs100</del></span></p>
-                        
-                        <div class="row justify-content-around mt-3">
-                            <a href="purchase.html" class=" col-5 genric-btn primary circle w-50" >Buy</a>
-                            <a href="packagedetail" class="col-5 genric-btn primary circle w-50" >Explore</a>
-                        </div>
-                    
                     </div>
-
                 </div>
+            @empty
+            <div class="col-12 text-center ">
+                <h2 style="font-size:40px" class="text-white bg-danger alert">Opps!!! No Package found.</h2>
             </div>
+                
+            @endforelse
+            
+            
         </div>
     </div>
 </section>

@@ -28,7 +28,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-6">
-                                <h5>Update Profile</h5>
+                                <h5>Update Profile</h5> 
                             </div>
                         </div>
                         <div>

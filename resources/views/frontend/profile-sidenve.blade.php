@@ -6,11 +6,11 @@
     <p class="text-black-50">edogaru@mail.com.my</p>
 
     <div class="row login_nav border">
-        <a href="vendor-profile" class="{{ "vendor-profile"== request()->path() ? "active" : "" }}">Profile</a>
-        <a href="update-profile" class="{{ "update-profile"== request()->path()  ? "active" : "" }}">Update Profile</a>
-        <a href="mypackages" class="{{ "mypackages"== request()->path() || "addnew-package"== request()->path() ? "active" : "" }}">My Packages</a>
-        <a href="invoice" class="{{ "invoice"== request()->path() ? "active" : "" }}">My Invoices</a>
-        <a href="change-password" class="{{ "change-password"== request()->path() ? "active" : "" }}">Change Password</a>
+        <a href="{{ url('vendor-profile') }}" class="{{ "vendor-profile"== request()->path() ? "active" : "" }}">Profile</a>
+        <a href="{{ url('update-profile') }}" class="{{ "update-profile"== request()->path()  ? "active" : "" }}">Update Profile</a>
+        <a href="{{ url('mypackages') }}" class="{{ "mypackages"== request()->path() || "addnew-package"== request()->path() ? "active" : "" }}">My Packages</a>
+        <a href="{{ url('invoice') }}" class="{{ "invoice"== request()->path() ? "active" : "" }}">My Invoices</a>
+        <a href="{{ url('change-password') }}" class="{{ "change-password"== request()->path() ? "active" : "" }}">Change Password</a>
         <a href="vendor-login">logout</a>
     </div>
 </div>
