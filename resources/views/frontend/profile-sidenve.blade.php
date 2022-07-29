@@ -2,7 +2,7 @@
     <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
     <h3 class="font-weight-bold">{{ Session::get('vendorName') }}</h3>
     <b>Vendor</b><br>
-    <span>{{ Session::get('vendorCat') }}</span>
+    <span>{{ Session::get('service') }}</span>
     <p class="text-black-50">{{ Session::get('vendorEmail') }}</p>
 
     <div class="row login_nav border">

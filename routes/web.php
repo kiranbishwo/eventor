@@ -56,6 +56,14 @@ Route::get('invoice/',[FrontVendorController::class, 'vendorinvoice']);
 Route::get('change-password/',[FrontVendorController::class, 'changepassword']);
 Route::get('mypackages/',[FrontVendorController::class, 'mypackages']);
 Route::get('addnew-package/',[FrontVendorController::class, 'addnewpackage']);
+// package
+Route::post('add-vendorPackage/',[FrontVendorController::class, 'addnewVendorpackage']);
+Route::post('update-vendorPackage/',[FrontVendorController::class, 'updateVendorpackage']);
+Route::post('/mypackage/loadtable',[FrontVendorController::class, 'loadtable']);
+Route::get('/mypackage/delete/{id}',[FrontVendorController::class, 'delete']);
+Route::post('/mypackage/destroy',[FrontVendorController::class, 'destroy']);
+Route::get('/update-package/{id}',[FrontVendorController::class, 'edit']);
+
 // update vendor and user profile
 Route::post('update-profile/',[FrontUserController::class, 'updateprofile']);
 Route::post('password-change/',[FrontUserController::class, 'passwordchange']);

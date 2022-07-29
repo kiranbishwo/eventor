@@ -10,7 +10,7 @@
                     <div class="col-md-8">
                           <div class="row">
                               <div class="col-12">
-                                <h2>Add new Package </h2>
+                                <h2>Update Package </h2>
                               </div>
                           </div>
                         <hr>
@@ -21,25 +21,26 @@
                                 <select name="package" id="package" class="form-select">
                                     <option selected disabled>Select Package</option>
                                     @foreach($package as $package)
-                                    <option value="{{ $package->name }}">{{ $package->name }}</option>
+                                    <option value="{{ $package->name }}" @if($package['name']==$subpackage['package']) selected @endif >{{ $package->name }}</option>
                                     @endforeach
                                 </select>
                                 <span class="text-danger" id="package-Error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="">Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter your package name">
+                                <input type="text" name="name" class="form-control" placeholder="Enter your package name" value="{{ $subpackage['name'] }}">
                                 <input type="hidden" name="addedBy" class="form-control" value="{{ Session::get('vendorLoginId') }}">
+                                <input type="hidden" name="id" class="form-control" value="{{ $subpackage['id'] }}">
                                 <span class="text-danger" id="name-Error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="">Price</label>
-                                <input type="number" min="0"  name="price" class="form-control" placeholder="Enter your peice">
+                                <input type="number" min="0"  name="price" class="form-control" placeholder="Enter your peice" value="{{ $subpackage['price'] }}">
                                 <span class="text-danger" id="price-Error"></span>
                             </div>
                             <div class="form-group">
                                 <label for="">Discription</label>
-                                <textarea name="content" id="content" class="textarea form-control" rows="3" placeholder="Enter short note abour your package"></textarea>
+                                <textarea name="content" id="content" class="textarea form-control" rows="3" placeholder="Enter short note abour your package">{{ $subpackage['content'] }}</textarea>
                                 <span class="text-danger" id="content-Error"></span>
                             </div>
                             </div>
@@ -47,14 +48,14 @@
                                 <label for="status">Status</label>
                                 <select name="status" id="status" class="form-select">
                                     <option selected disabled value="">Select status</option>
-                                    <option value="Available">Available</option>
-                                    <option value="Not Available">Not Available</option>
+                                    <option value="Available" @if($subpackage['status']=="Available") selected @endif>Available</option>
+                                    <option value="Not Available" @if($subpackage['status']=="Not Available") selected @endif>Not Available</option>
                                 </select>
                                 <span class="text-danger" id="status-Error"></span>
                             </div>
 
                             <div class="form-group">
-                                <input type="submit" class="btn btn_1 m-0" value="Add Package">
+                                <input type="submit" class="btn btn_1 m-0" value="Update Package">
                                 <a href="{{ url('mypackages') }}" class="btn btn-lg bg-secondary text-white" >Back</a>
   
                             </div>
@@ -82,7 +83,7 @@ $(document).ready(function(){
     
         $.ajax({
         type:'POST',
-        url:"{{ url('add-vendorPackage') }}",
+        url:"{{ url('update-vendorPackage') }}",
         cache:false,
         data :formData,
         contentType : false, // you can also use multipart/form-data replace of false
