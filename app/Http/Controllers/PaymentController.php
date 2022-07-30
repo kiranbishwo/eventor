@@ -87,12 +87,46 @@ class PaymentController extends Controller
             curl_close($curl);
 
             if (strpos($response, "Success") == true) {
+                
+                
+                $buy_date = date('Y-m-d H:i:s');
+                $user_id =  $request->session()->get('esewa_user_id');
+                $pmt_method = 'eSewa';
+                $status = 'Inactive';
+                // from form
+                $amount = $request->session()->get('esewa_amount');
+                $package_id = $request->session()->get('esewa_package_id');
+
+                $subpackage_id= $request->session()->get('esewa_subpackage_id');
+                // dd($subpackage_id);
+                // $subpackage_id = $req->input('subpackage');
+
+                $package = Invoice::create([
+                    'user_id' => $user_id,
+                    'package_id' => $package_id,
+                    'subpackage_id' => $subpackage_id,
+                    'amount' => $amount,
+                    'pmt_method' => $pmt_method,
+                    'buy_date' => $buy_date,
+                    'status' => $status
+                ]);
+                
+                
+                // $request->session()->forget('esewa_user_id');
+                // $request->session()->forget('esewa_package_id');
+                // $request->session()->forget('esewa_subpackage_id');
+                // $request->session()->forget('esewa_amount');
+                // $request->session()->forget('esewa_token');
                 return redirect()->back()->with('success','Transaction Successful.');
+
             } else {
+                $request->session()->forget('esewa_amount');
+                $request->session()->forget('esewa_token');
                 return redirect()->back()->with('error','Transaction Failed Try Again.');
             }
         } else {
-            $pmt_status = 0;
+            $request->session()->forget('esewa_amount');
+            $request->session()->forget('esewa_token');
             return redirect()->back()->with('error','Transaction Failed Try Again.');
         }
     }
