@@ -65,7 +65,7 @@
                                 @foreach ($package->subpackage as $subpackage) 
                                         @if($subpackage->vendor->service == $service)
                                         
-                                            <label for="vendor"  class="col-6 "  >
+                                            <label for="vendor"  class="col-6 ">
                                                 <div style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" class="p-3">
                                                     <h5>{{ $subpackage->name }}</h5>
                                                     <a href="" class="text-muted"> <i class="ti-user"></i> {{ $subpackage->vendor->name }}</a><br>
@@ -74,10 +74,10 @@
         
                                                     <div class="row">
                                                         <div class="col-3 text-center mt-2">
-                                                            <input type="radio" name="vendor" id="{{ 'vendor-'.$subpackage->id }}"  style="transform: scale(2.5); ">
+                                                            <input type="radio" data-price="{{ $subpackage->price }}" class="radiobtn-click" name="{{ $service }}" id="{{ 'vendor-'.$subpackage->id }}"  style="transform: scale(2.5); ">
                                                         </div>
                                                         <div class="col-9 text-right">
-                                                            <button value="{{ $subpackage->price }}" class="vendor-info"  class="rounded btn_4">Vendor Info</button>
+                                                            <button data-id="{{ $subpackage->id }}" data-location="{{ $subpackage->vendor->address }}" data-name="{{ $subpackage->vendor->name }}"   class="rounded btn_4 subpackage-info">Vendor Info</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -90,10 +90,10 @@
                             @endforeach
                             <hr>
                             <li>
-                                <a class="justify-content-between d-flex" href="#">
+                                <h2 class="justify-content-between d-flex" href="#">
                                     <p>Total Price </p>
-                                    <span>Rs. 5000</span>
-                                </a>
+                                    <span>Rs. <span id="prev_total_price" style="display: none">{{ $package->price }}</span> <span id="total_price">{{ $package->price }}</span></span>
+                                </h2>
                             </li>
 
                         </ul>
@@ -108,7 +108,7 @@
         </div>
     </section>
     <!--================ End Course Details Area =================-->
-    <!-- Modal vendor info-->
+    <!-- Modal subpackage info-->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -121,16 +121,19 @@
             <div class="modal-body">
             <table class=" w-100">
                 <tr>
-                    <td class="w-25">Vendor Name</td><td>:</td><td>ksjdkjs skjdhsd <a href=""class="badge bg-primary text-white">See Vendors Profile</a></td>
+                    <td class="w-25">Vendor Name</td><td>:</td><td id="vendor_name">ksjdkjs skjdhsd </td>
                 </tr>
                 <tr>
-                    <td>Price</td><td>:</td><td>Rs. 822</td>
+                    <td>Price</td><td>:</td><td>Rs. <span id="subpackage-price"></span></td>
                 </tr>
                 <tr>
-                    <td>Unavailabl Dates</td><td>:</td><td>2022-2-2</td>
+                    <td>Status</td><td>:</td><td id="subpackage-status"></td>
                 </tr>
                 <tr>
-                    <td>Description</td><td>:</td><td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam neque, animi laboriosam sequi odit velit ratione numquam sunt eveniet aut!</td>
+                    <td>Description</td><td>:</td><td id="subpackage-content"></td>
+                </tr>
+                <tr>
+                    <td>Address</td><td>:</td><td id="vendor_location"></td>
                 </tr>
             </table>
             </div>
@@ -166,7 +169,7 @@
                         <h4>Or yo can pay via esewa</h4>
                         <hr>
                         <form class="text-center" >
-                            <input type="submit" name="" class="btn bg-success btn-lg w-100 rounded text-white"  value="eSewa">
+                            <button type="submit" name="" class="btn bg-success btn-lg w-100 rounded text-white" >eSewa</button>
                         </form>
                     </div>
                 </div>
@@ -181,23 +184,56 @@
 @endsection
 @section('script')
 <script>
+    
 $(document).ready(function(){
+    
 
     // view vendor info data
-    $(document).on('click', '.vendor-info', function(e){
-        e.preventDefault();
-        var vendor_id = $(this).val();
-        // console.log(del_id);
-        $("#exampleModalCenter").modal('show');
-        $.ajax({
-            type:'GET',
-            url:"/package/vendot-info/"+vendor_id,
-            success:function(data){
-                console.log(data);
-            // $('#delete_id').val(data.message.id);
+    $(document).on('click', '.subpackage-info', function(e){
+    e.preventDefault();
+    var subpackage_id = $(this).data('id');
+    var subpackage_vendorname = $(this).data('name');
+    var subpackage_location = $(this).data('location');
+    console.log(subpackage_id);
+    $("#exampleModalCenter").modal('show');
+    $.ajax({
+        type:'GET',
+        url:"/package/subpackage-info/"+subpackage_id,
+        success:function(data){
+            console.log(data)
+        $('#exampleModalLongTitle').text(data.subpackage.name);
+        $('#subpackage-price').text(data.subpackage.price);
+        $('#subpackage-status').text(data.subpackage.status);
+        $('#subpackage-content').text(data.subpackage.content);
+        $('#vendor_name').text(subpackage_vendorname);
+        $('#vendor_location').text(subpackage_location);
+        }
+    });
+    })
+
+    // calculate total price
+    $('.radiobtn-click').click(function(){
+        let prev_total = parseInt($("#prev_total_price").text());
+        // console.log(prev_total);
+        let ele = document.getElementsByTagName('input');
+        let total = 0, price = 0, final_total =0; 
+        // console.log(total);
+        for(i = 0; i < ele.length; i++) {
+                
+            if(ele[i].type="radio") {
+                if(ele[i].checked){
+                    price = $(ele[i]).data('price');
+                    total = total+price;
+                    final_total = (prev_total+total);
+                }
             }
-        });
-        })
+        }
+        $("#total_price").text(final_total);
+        
+    })
+    
+
+        
         // delete
         $("#deleteForm").on("submit", function(e){
         e.preventDefault();

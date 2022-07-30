@@ -63,6 +63,7 @@ Route::post('/mypackage/loadtable',[FrontVendorController::class, 'loadtable']);
 Route::get('/mypackage/delete/{id}',[FrontVendorController::class, 'delete']);
 Route::post('/mypackage/destroy',[FrontVendorController::class, 'destroy']);
 Route::get('/update-package/{id}',[FrontVendorController::class, 'edit']);
+Route::get('/package/subpackage-info/{id}',[FrontVendorController::class, 'subpackageIfno']);
 
 // update vendor and user profile
 Route::post('update-profile/',[FrontUserController::class, 'updateprofile']);

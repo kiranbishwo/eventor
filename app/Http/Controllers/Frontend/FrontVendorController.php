@@ -142,4 +142,13 @@ class FrontVendorController extends Controller
         }
     }
 
+    // show vendor info to model
+    public function subpackageIfno($id){
+        $package = Subpackage::find($id);
+        return response()->json([
+            'subpackage'=> $package,
+        ]);
+        
+    }
+
 }
