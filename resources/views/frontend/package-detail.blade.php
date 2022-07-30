@@ -4,6 +4,14 @@
     <!--================ Start Course Details Area =================-->
     <section class="course_details_area section_padding">
         <div class="container">
+            <div class="row">
+                @if(session('success'))
+                    <div class="alert bg-success text-white col-12 text-center">{{session('success')}}</div>
+                @endif
+                @if(session('error'))
+                    <div class="alert bg-danger text-white col-12 text-center">{{session('error')}}</div>
+                @endif
+            </div>
             <div class="row justify-content-center">
                 <div class="col-md-6 course_details_left">
                     <h3 class="mb-3">{{ $package->name }}</h3>
@@ -74,7 +82,7 @@
         
                                                     <div class="row">
                                                         <div class="col-3 text-center mt-2">
-                                                            <input type="radio" data-price="{{ $subpackage->price }}" class="radiobtn-click" name="{{ $service }}" id="{{ 'vendor-'.$subpackage->id }}"  style="transform: scale(2.5); ">
+                                                            <input type="radio" data-price="{{ $subpackage->price }}" data-subpackage="{{ $subpackage->id }}"  class="radiobtn-click" name="{{ $service }}" id="{{ 'vendor-'.$subpackage->id }}"  style="transform: scale(2.5); ">
                                                         </div>
                                                         <div class="col-9 text-right">
                                                             <button data-id="{{ $subpackage->id }}" data-location="{{ $subpackage->vendor->address }}" data-name="{{ $subpackage->vendor->name }}"   class="rounded btn_4 subpackage-info">Vendor Info</button>
@@ -97,7 +105,7 @@
                             </li>
 
                         </ul>
-                        <button data-toggle="modal" data-target="#paymentmodel" class="btn_1 d-block w-100">Enroll the course</button>
+                        <button  class="btn_1 d-block w-100 enrole_package">Enroll the course</button>
                     </div>
 
                     
@@ -159,6 +167,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <img src="{{ url('frontend/assets/img/payment/fonepay.png')}}" alt="" class="w-100">
+                        <form class="text-center" action="{{ url('payFonepay') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="subpackage[]" id="subpackageValue">
+                            <input type="hidden" name="totalAmount" id="amountValue">
+                            <input type="hidden" name="packageId" id="packageValue">
+                            <button type="submit" name="submit" class="btn bg-warning btn-lg w-100 rounded text-white" >Pay Via FonePay</button>
+                        </form>
                     </div>
                     <div class="col-md-6">
                         <h4>Payment Process</h4>
@@ -168,14 +183,23 @@
                         <hr>
                         <h4>Or yo can pay via esewa</h4>
                         <hr>
-                        <form class="text-center" >
-                            <button type="submit" name="" class="btn bg-success btn-lg w-100 rounded text-white" >eSewa</button>
+                        <form action="{{ url('payeSewapay') }}" method="POST" class="text-center">
+                            @csrf
+                            {{-- <span id="subpackageValue"></span>
+                            <span id="amountValue"></span>
+                            <span id="packageValue"></span> --}}
+                            <input type="hidden" name="subpackage1[]" id="subpackageValue1">
+                            <input type="hidden" name="totalAmount1" id="amountValue1">
+                            <input type="hidden" name="packageId1" id="packageValue1">
+                            <button type="submit" name="submit" class="btn bg-success btn-lg w-100 rounded text-white" >eSewa</button>
                         </form>
+                        
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-            <button type="button" class=" btn_4 rounded" data-dismiss="modal">Close</button>
+                
+                <button type="button" class=" btn_4 rounded" data-dismiss="modal">Close</button>
             </div>
         </div>
         </div>
@@ -215,8 +239,10 @@ $(document).ready(function(){
     $('.radiobtn-click').click(function(){
         let prev_total = parseInt($("#prev_total_price").text());
         // console.log(prev_total);
-        let ele = document.getElementsByTagName('input');
-        let total = 0, price = 0, final_total =0; 
+
+       
+        let ele = document.getElementsByClassName('radiobtn-click');
+        let total = 0, price = 0, final_total =0 ; 
         // console.log(total);
         for(i = 0; i < ele.length; i++) {
                 
@@ -229,7 +255,6 @@ $(document).ready(function(){
             }
         }
         $("#total_price").text(final_total);
-        
     })
     
 
@@ -261,6 +286,44 @@ $(document).ready(function(){
             $("#exampleModalLive").modal('hide');
         }
         });
+    });
+
+    $(document).on('click', '.enrole_package', function(e){
+    e.preventDefault();
+        let ele = document.getElementsByClassName('radiobtn-click');
+        let subpackage = [];
+        let sp= null; 
+        let package_id = parseInt({{ $package->id }});
+        // console.log(package_id);
+        let total_price = parseInt($("#total_price").text());
+        // console.log(total);
+        for(i = 0; i < ele.length; i++) {
+            if(ele[i].type="radio") {
+                if(ele[i].checked){
+                    sp = $(ele[i]).data('subpackage');
+                    subpackage.push(sp);
+                }
+            }
+        }
+        console.log(subpackage);
+        $("#paymentmodel").modal('show');
+        $("#subpackageValue").val(subpackage);
+        $("#amountValue").val(total_price);
+        $("#packageValue").val(package_id);
+        $("#subpackageValue1").val(subpackage);
+        $("#amountValue1").val(total_price);
+        $("#packageValue1").val(package_id);
+        // $.ajax({
+        //     type:'POST',
+        //     url:"{{ url('collect_data/') }}",
+        //     data:{amount:total_price, subpackage:subpackage,package_id:package_id},
+        //     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        //     dataType:'json',
+        //     success:function(data){
+        //         console.log(data);
+        //     }
+        // });
+
     });
 });
 </script>

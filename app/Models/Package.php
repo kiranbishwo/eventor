@@ -24,4 +24,7 @@ class Package extends Model
     public function subpackage(){
         return $this->hasMany(Subpackage::class);
     }
+    // public function invoice(){
+    //     return $this->hasMany(Invoice::class);
+    // }
 }

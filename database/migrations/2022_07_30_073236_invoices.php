@@ -13,7 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('invoices', function (Blueprint $table) {
+            $table->id();
+            $table->integer('user_id');
+            $table->integer('package_id');
+            $table->string('subpackage_id');
+            $table->integer('amount');
+            $table->string('pmt_method');
+            $table->string('buy_date');
+            $table->string('status');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('invoices'); 
     }
 };

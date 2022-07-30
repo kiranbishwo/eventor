@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\FrontPackageController;
 use App\Http\Controllers\Frontend\FrontVendorController;
 use App\Http\Controllers\Frontend\FrontUserController;
 use App\Http\Controllers\FrontLoginController;
+use App\Http\Controllers\PaymentController;
 
 
 /*
@@ -93,7 +94,19 @@ Route::post('register-user/',[FrontLoginController::class, 'registeruser']);//ac
 
 
 
+// payment or invoices
+Route::post('collect_data/',[PaymentController::class, 'collectData']);//actual residter
+Route::post('payFonepay/',[PaymentController::class, 'payFonepay']);//payment via fonepay
+Route::get('payFonepaySu/',[PaymentController::class, 'payFonepaySu']);//fone pay success
+// payment via esewa
+Route::post('payeSewapay/',[PaymentController::class, 'payeSewapay']);//actual residter
 
+Route::get('/payment-verify/',[PaymentController::class, 'verify']);//actual residter
+
+
+
+
+// payment and invoices
 
 
 

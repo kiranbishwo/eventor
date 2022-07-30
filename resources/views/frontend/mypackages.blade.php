@@ -160,6 +160,7 @@ $(document).on('click', '.delete-btn', function(e){
     $.ajax({
         type:'GET',
         url:"/mypackage/delete/"+del_id,
+        
         success:function(data){
         $('#delete_id').val(data.message.id);
         }
