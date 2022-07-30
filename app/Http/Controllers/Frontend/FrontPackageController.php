@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Package;
+use App\Models\Subpackage;
 use DB;
 
 class FrontPackageController extends Controller
@@ -16,7 +17,16 @@ class FrontPackageController extends Controller
     }
     public function packagedetail($id){
         
-        $package = Package::find($id);
+        $package = Package::with('subpackage.vendor')->where('id' , $id)->first(); 
+        // dd($packageService->service);
+        // $package = Package::with(
+        //     'subpackage', function($query) use($packageService){
+        //         $query->withHas('vendor', function($query) use($packageService){
+        //             $query->whereIn('service', $packageService->service);
+        //         });
+        //     }
+        // )->where('id' , $id)->first(); 
+        // dd($package);
         return view('frontend.package-detail',['package'=>$package]);
     }
     public function showpackage($cat_name){

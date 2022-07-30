@@ -21,4 +21,7 @@ class Package extends Model
     {
         return $this->attributes['service'] = json_decode($value);
     }
+    public function subpackage(){
+        return $this->hasMany(Subpackage::class);
+    }
 }

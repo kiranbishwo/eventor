@@ -16,13 +16,15 @@ return new class extends Migration
         Schema::create('subpackages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('package');
+            $table->unsignedBigInteger('package_id');
             $table->string('price');
             $table->longtext('content');
             $table->string('addedBy');
             $table->string('status');
             $table->timestamps();
+            $table->foreign('package_id')->references('id')->on('packages')->onDelete('restrict');
         });
+
     }
 
     /**
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('subpackages'); 
     }
 };

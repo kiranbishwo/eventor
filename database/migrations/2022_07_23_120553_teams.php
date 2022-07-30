@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('password');
-            $table->string('contact');
+            $table->string('contact')->nullable();
             $table->string('role');
             $table->string('email');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

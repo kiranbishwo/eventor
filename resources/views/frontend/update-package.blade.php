@@ -21,7 +21,7 @@
                                 <select name="package" id="package" class="form-select">
                                     <option selected disabled>Select Package</option>
                                     @foreach($package as $package)
-                                    <option value="{{ $package->name }}" @if($package['name']==$subpackage['package']) selected @endif >{{ $package->name }}</option>
+                                    <option value="{{ $package->id }}" @if($package['id']==$subpackage['package_id']) selected @endif >{{ $package->name }}</option>
                                     @endforeach
                                 </select>
                                 <span class="text-danger" id="package-Error"></span>

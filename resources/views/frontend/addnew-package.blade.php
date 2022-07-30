@@ -18,10 +18,10 @@
                           <form id="actionForm">
                             <div class="form-group">
                                 <label for="package">Select Main package</label>
-                                <select name="package" id="package" class="form-select">
+                                <select name="package_id" id="package" class="form-select">
                                     <option selected disabled>Select Package</option>
                                     @foreach($package as $package)
-                                    <option value="{{ $package->name }}">{{ $package->name }}</option>
+                                    <option value="{{ $package->id }}">{{ $package->name }}</option>
                                     @endforeach
                                 </select>
                                 <span class="text-danger" id="package-Error"></span>

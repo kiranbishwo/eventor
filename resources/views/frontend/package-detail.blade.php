@@ -56,101 +56,39 @@
                                 <h4 class="m-0 text-white">Customize Package</h4>
                             </div>
                             <hr >
-                            <form action="" class="row">
-                                <div class="col-md-4">
-                                    <input class="form-control" name="name" id="name" type="date">
-                                   
-                                </div>
-                                <div class="col-md-4">
-                                    <select name="" id="" class="form-control">
-                                        <option value="">Select Address</option>
-                                        <option value="">Select Category</option>
-                                        <option value="">Select Category</option>
-                                        <option value="">Select Category</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="submit" id="submit" name="submit"class="rounded btn_4 w-100" value="Search Vendors">
-                                </div>
-                            </form>
+                            
+                            {{-- {{ $subpackage['package'] }} --}}
+                            @foreach ($package->service as $service)
                             <li>
-                                <h4 class="mb-2" style="color: #ED390F;">Transportation Options</h4>
+                                <h4 class="mb-2" style="color: #ED390F;"> {{ $service }}</h4>
                                 <div class="row">
-                                    <label for="vendor"  class="col-6 "  >
-                                        <div style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" class="p-3">
-                                            <h5>Vendor package name</h5>
-                                            <a href="" class="text-muted"> <i class="ti-user"></i> Vendors Name</a>
-                                            <p class="text-bold h3">$45</p>
-
-                                            <div class="row">
-                                                <div class="col-3 text-center mt-2">
-                                                    <input type="radio" name="vendor" id="vendor"  style="transform: scale(2.5); ">
+                                @foreach ($package->subpackage as $subpackage) 
+                                        @if($subpackage->vendor->service == $service)
+                                        
+                                            <label for="vendor"  class="col-6 "  >
+                                                <div style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" class="p-3">
+                                                    <h5>{{ $subpackage->name }}</h5>
+                                                    <a href="" class="text-muted"> <i class="ti-user"></i> {{ $subpackage->vendor->name }}</a><br>
+                                                    <a href="" class="text-muted"> <i class="ti-pin"></i> {{ $subpackage->vendor->address }}</a>
+                                                    <p class="text-bold h3">Rs. {{ $subpackage->price }}</p>
+        
+                                                    <div class="row">
+                                                        <div class="col-3 text-center mt-2">
+                                                            <input type="radio" name="vendor" id="{{ 'vendor-'.$subpackage->id }}"  style="transform: scale(2.5); ">
+                                                        </div>
+                                                        <div class="col-9 text-right">
+                                                            <button value="{{ $subpackage->price }}" class="vendor-info"  class="rounded btn_4">Vendor Info</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-9 text-right">
-                                                    <button data-toggle="modal" data-target="#exampleModalCenter" class="rounded btn_4">Vendor Info</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </label>
-                                    <label for="vendor"  class="col-6 "  >
-                                        <div style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" class="p-3">
-                                            <h5>Vendor package name</h5>
-                                            <a href="" class="text-muted"><i class="ti-user"></i> Vendors Name</a>
-                                            <p><i class="ti-location-pin"></i>Address goes here</p>
-                                            <p class="text-bold h3">$45</p>
-
-                                            <div class="row">
-                                                <div class="col-3 text-center mt-2">
-                                                    <input type="radio" name="vendor" id="vendor"  style="transform: scale(2.5); ">
-                                                </div>
-                                                <div class="col-9 text-right">
-                                                    <button data-toggle="modal" data-target="#exampleModalCenter" class="rounded btn_4">Vendor Info</button>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                    </label>
+                                            </label>
                                     
-                                </div>
+                                        @endif
+                                @endforeach
+                            </div>
                             </li>
+                            @endforeach
                             <hr>
-                            <li>
-                                <h4 class="mb-2" style="color: #ED390F;">Transportation Options</h4>
-                                <div class="row">
-                                    <label for="vendor1" class="col-6 ">
-                                        <div  class="p-3" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" >
-                                            <h5>Vendor package name</h4>
-                                            <a href="" class="text-muted">Vendors Name</a>
-                                            <p class="text-bold h3">$45</p>
-                                            <div class="row">
-                                                <div class="col-3 text-center mt-2">
-                                                    <input type="radio" name="vendor" id="vendor1"  style="transform: scale(2.5); ">
-                                                </div>
-                                                <div class="col-9 text-right">
-                                                    <a href="" class="rounded btn_4">More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </label>
-                                    <label for="vendor"  class="col-6 "  >
-                                        <div style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" class="p-3">
-                                            <h5>Vendor package name</h5>
-                                            <a href="" class="text-muted">Vendors Name</a>
-                                            <p class="text-bold h3">$45</p>
-
-                                            <div class="row">
-                                                <div class="col-3 text-center mt-2">
-                                                    <input type="radio" name="vendor" id="vendor"  style="transform: scale(2.5); ">
-                                                </div>
-                                                <div class="col-9 text-right">
-                                                    <a href="" class="rounded btn_4">More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </label>
-                                    
-                                </div>
-                            </li>
                             <li>
                                 <a class="justify-content-between d-flex" href="#">
                                     <p>Total Price </p>
@@ -240,4 +178,54 @@
         </div>
     </div>
     <!-- Modal  payment method end-->
+@endsection
+@section('script')
+<script>
+$(document).ready(function(){
+
+    // view vendor info data
+    $(document).on('click', '.vendor-info', function(e){
+        e.preventDefault();
+        var vendor_id = $(this).val();
+        // console.log(del_id);
+        $("#exampleModalCenter").modal('show');
+        $.ajax({
+            type:'GET',
+            url:"/package/vendot-info/"+vendor_id,
+            success:function(data){
+                console.log(data);
+            // $('#delete_id').val(data.message.id);
+            }
+        });
+        })
+        // delete
+        $("#deleteForm").on("submit", function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+        $.ajax({
+            
+        url: "{{ url('/blog/destroy') }}",
+        type : "POST",
+        cache:false,
+        data :formData,
+        contentType : false, // you can also use multipart/form-data replace of false
+        processData: false,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        dataType:'json',
+        success : function(data){
+            // console.log(data);
+            // loadtable();
+            if(data.status ==200){
+                loadtable();
+                Command: toastr["success"]("Success", "Blog Deleted Sucessfully");
+            }else{
+            // $('.error_list').text('error occurs.')
+                Command: toastr["error"]("Failed", "Unable to delete");
+            }
+            $("#exampleModalLive").modal('hide');
+        }
+        });
+    });
+});
+</script>
 @endsection

@@ -9,5 +9,14 @@ class Subpackage extends Model
 {
     use HasFactory;
     protected $table = 'subpackages';
-    protected $fillable = ['name','package','price','status','addedBy','content'];
+    protected $fillable = ['name','package_id','price','status','addedBy','content'];
+
+    public function package(){
+        return $this->belongsTo(Package::class);
+    }
+    public function vendor(){
+        return $this->belongsTo(Vendor::class,'addedBy');
+    }
 }
+
+

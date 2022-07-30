@@ -78,7 +78,7 @@ class FrontVendorController extends Controller
             ]);
         }
     }
-    public function addnewpackage(){
+    public function addnewpackage(){ 
         $service = Session::get('service');
         // dd($service);
         $package = Package::where('service', 'LIKE', "%{$service}%")->get();
@@ -98,7 +98,7 @@ class FrontVendorController extends Controller
     public function addnewVendorpackage(Request $req){
         $req->validate([
             'name'=>'required',
-            'package'=>'required',
+            'package_id'=>'required',
             'price'=>'required',
             'status'=>'required',
             'content'=>'required',
@@ -106,7 +106,7 @@ class FrontVendorController extends Controller
         if($req->ajax()){
             $Subpackage = Subpackage::create([
                 'name' => $req->input('name'),
-                'package' => $req->input('package'),
+                'package_id' => $req->input('package_id'),
                 'price' => $req->input('price'),
                 'status' => $req->input('status'),
                 'content' => $req->input('content'),

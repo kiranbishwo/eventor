@@ -134,8 +134,6 @@ class TeamController extends Controller
                 // end delete file
 
 
-
-
                 $test=$req->file('photo')->guessExtension();//get extention
                 $type=$req->file('photo')->getMimeType();//get type
 
