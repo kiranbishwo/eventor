@@ -37,19 +37,15 @@
                                         array_push($sub_id,$subpackage->subid);
                                     @endphp
                                 @endforeach
-
                                 @php
                                     $subpackage_count = count($sub_id);
-                                    
                                 @endphp
-                              
                                 @foreach($invoice as $invoice) 
                                     @php
                                         $subpackage_idarr = explode(',',$invoice->invSubid)
                                     @endphp
                                     @for($i=0;$i< $subpackage_count ; $i++)
                                         @if(in_array($sub_id[$i], $subpackage_idarr))
-                                       
                                         <tr>
                                             <th>{{ $invoice->invid }}</th>
                                             <th>{{ $invoice->name }}</th>
@@ -66,12 +62,8 @@
                                             </th>
                                             <th><a href="{{ url('vendor-invoice-detail/'.$invoice->invid) }}" class="rounded btn_4" >Details</a></th>
                                         </tr>
-
                                         @endif
                                     @endfor
-                                    
-
-                                
                                 @endforeach
                             </tbody>
                         </table>

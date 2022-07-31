@@ -41,74 +41,67 @@
 
                         <table class="table">
                             <tbody>
+                                @foreach($invoice as $invoice)
                                 <tr>
-                                    <td class="w-25"><b>User Name</b></td>
-                                    <td>Binod Chaudhari</td>
                                     <td class="w-25"><b>Package Name</b></td>
-                                    <td>Everest Trek</td>
+                                    <td>{{ $invoice->name }}</td>
+                                    <td class="w-25"><b>Package Basic Price</b></td>
+                                    <td>Rs. {{ $invoice->price }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="w-25"><b>Mobile</b></td>
-                                    <td>9854521545</td>
-                                    <td class="w-25"><b>Email</b></td>
-                                    <td>binod@gmail.com</td>
+                                    <td class="w-25"><b>Package Category</b></td>
+                                    <td>{{ $invoice->category }}</td>
+                                    <td class="w-25"><b>Chooser Subpackage id</b></td>
+                                    @php 
+                                        $subpackage_idarr = explode(',',$invoice->subpackage_id)
+                                    @endphp
+                                    <td>{{ $invoice->subpackage_id }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="w-25"><b>Country</b></td>
-                                    <td>USA</td>
-                                    <td class="w-25"><b>Address</b></td>
-                                    <td>USA DC</td>
+                                    <td class="w-25"><b>Services Provided in package</b></td>
+                                    <td>@for( $i = 0 ; $i < count($invoice->service) ; $i++)
+                                        {{ $invoice->service[$i]." | " }}
+                                        @endfor</td>
+                                    <td class="w-25"><b>Buyind Date</b></td>
+                                    <td>{{ $invoice->buy_date }}</td>
                                 </tr>
-                               
+                                @endforeach
                                 <tr>
-                                    <td class="w-25"><b>D.O.B</b></td>
-                                    <td>2000-1-1</td>
-                                    <td class="w-25"><b>Passport Number</b></td>
-                                    <td>1241-5215-5451-4547</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><b>Passport Issued Date</b></td>
-                                    <td>2020-2-2</td>
-                                    <td class="w-25"><b>Passport Expiring Date</b></td>
-                                    <td>2020-2-17</td>
+                                    <td class="w-25"><b>Total Price</b></td>
+                                    <td>Rs. {{ $invoice->amount }}</td>
+                                    <td class="w-25"><b>Payment Method</b></td>
+                                    <td>{{ $invoice->pmt_method }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="w-25"><b>Passport Place to issue</b></td>
-                                    <td>USA</td>
-                                    <td class="w-25"><b>Group Size</b></td>
-                                    <td>2+</td>
+                                    <td class="w-25"><b>Booking Status</b></td>
+                                    <td>@if($invoice->status=="Inactive") 
+                                            <span class="badge badge-danger">{{ $invoice->status }}</span>
+                                        @else 
+                                            <span class="badge badge-success">{{ $invoice->status }}</span>
+                                        @endif</td>
                                 </tr>
 
-                                <tr>
-                                    <td class="w-25"><b>Duration</b></td>
-                                    <td>15 Days</td>
-                                    <td class="w-25"><b>Group Size</b></td>
-                                    <td>2+</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><b>Price</b></td>
-                                    <td>$ 2000</td>
-                                    <td class="w-25"><b>Payment Type</b></td>
-                                    <td>Visa</td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><b>Payment Status</b></td>
-                                    <td><span class="badge badge-success">Paid</span></td>
-                                    <td class="w-25"><b>Event Status</b></td>
-                                    <td><span class="badge badge-success">Running</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="w-25"><b>Event Starting Date</b></td>
-                                    <td>2020-2-2</td>
-                                    <td class="w-25"><b>Event Ending Date</b></td>
-                                    <td>2020-2-17</td>
-                                </tr>
+
+
+
+                                @foreach($subpackage as $subpackage)
+                                @for( $i = 0 ; $i < count($subpackage_idarr) ; $i++)
+                                    @if($subpackage_idarr[$i] == $subpackage->id)
+                                    <tr class="w-25">
+                                        <td><b>Subpackage Info</b></td>
+                                        <td>{{ $subpackage->name }} | Rs. {{ $subpackage->price }}</td>
+                                            
+                                    </tr>
+                                    @endif
+                                @endfor
+                                @endforeach
+ 
                                 
-                            
+                                
                             </tbody>
                         </table>
                   <div class="row pl-4">
-                      <a href="booking" class="btn btn-danger">Back</a>
+                      <a href="{{ URL('booking') }}" class="btn btn-danger">Back</a>
                   </div>
 
                     </div>

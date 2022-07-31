@@ -6,7 +6,12 @@
     <div class="container" style="margin-top:150px">
         <div class="container rounded bg-white mt-5 mb-5" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
             <div class="row p-4">
-                @include('frontend.userProfile-sidenav')
+                    @if($mode =='user')
+                        @include('frontend.userProfile-sidenav')
+                    @endif
+                    @if($mode =='vendor')
+                        @include('frontend.profile-sidenve')
+                    @endif
                 <div class="col-8">
                     <h2>My Profile</h2>
                     <hr>
@@ -31,7 +36,7 @@
                                   
                                 </tr>
                                 <tr>
-                                    <td>Package Category</td>
+                                    <td>Chooser Subpackage id</td>
                                     <td>:</td>
                                     @php 
                                         $subpackage_idarr = explode(',',$invoice->subpackage_id)
@@ -74,7 +79,7 @@
                             <tr>
                                 <td>Buyind Date</td>
                                 <td>:</td>
-                                    <td> Rs. {{ $invoice->buy_date }}</td>
+                                    <td> {{ $invoice->buy_date }}</td>
                                     
                             </tr>
                             <tr>

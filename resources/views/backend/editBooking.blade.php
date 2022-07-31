@@ -31,30 +31,21 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-6">
-                                <h5>Edit Booking</h5>
+                                <h5>Edit Booking</h5> 
                             </div>
                         </div>
                     </div>
                     <div class="container">
-                        <form class="my-2 p-2">
-                            <div class="form-row">
+                        <form class="my-2 p-2" id="addForm">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-6">
-                                    <label for="payment">Payment Status</label>
-                                    <select name="payment" id="payment" class="form-control">
-                                        <option selected disabled>Select Payment Status</option>
-                                        <option value="paid">Paid</option>
-                                        <option value="unpaid">Unaid</option>
-                                        <option value="pending">Pending </option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="event">Event Status</label>
-                                    <select name="event" id="event" class="form-control">
-                                        <option selected disabled>Select Event Status</option>
-                                        <option value="paid">Active</option>
-                                        <option value="unpaid">Inactive</option>
-                                        <option value="pending">Running </option>
-                                        <option value="rwjwcted">Rejected </option>
+                                   
+                                    <label for="status">Booking Status</label>
+                                    <input type="hidden" name="id" value="{{ $invoice['id'] }}">
+                                    <select name="status" id="status" class="form-control">
+                                        <option selected disabled>Select Booking Status</option>
+                                        <option value="Active" @if($invoice['status'] =="Active") selected @endif>Active</option>
+                                        <option value="Inactive" @if($invoice['status']=="Inactive") selected @endif>Inactive</option>
                                     </select>
                                 </div>
                                 
@@ -62,9 +53,8 @@
                             
                             
                             
-                              <input class="btn btn-primary " type="submit" value="Submit">
-                              <a class="btn btn-danger" href="booking" role="button">Back</a>
-                              <input class="btn btn-warning" type="reset" value="Reset">
+                              <input class="btn btn-primary " type="submit" value="Update Status">
+                              <a class="btn btn-danger" href="{{ url('booking') }}" role="button">Back</a>
 
                           </form>
                     </div>
@@ -78,30 +68,38 @@
     </div>
 </div>
 
-<div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLiveLabel">Conformation!!!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <p class="mb-0">Are you sure, you want to delete this content!</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn  btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn  btn-danger">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
-
+@endsection
+@section('script')
 <script>
-$(document).ready(function() {
-	$('#summernote').summernote({
-	placeholder: 'Enter your Content Here.',
-	height: 300,
-	});
+$(document).ready(function(){
+    // add category
+    $("#addForm").on("submit", function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+    
+        $.ajax({
+        type:'POST',
+        url:"{{ url('/editBooking/edit') }}",
+        cache:false,
+        data :formData,
+        contentType : false, // you can also use multipart/form-data replace of false
+        processData: false,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        //  data:{name:name, email:email, contact:contact, cource:cource},
+        dataType:'json',
+        success:function(data){
+            if(data.status ==200){
+                Command: toastr["success"]("Success", "Blog Added Sucessfully");
+            }else{
+                Command: toastr["error"]("Failed", "Unable to Add Blog");
+            }
+
+            
+        }
+        });
+
+    });
+    
 });
 </script>
 @endsection

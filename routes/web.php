@@ -170,8 +170,9 @@ Route::prefix('gallery')->group(function () {
 });
 
 Route::get('/booking',[BookingController::class, 'index']);
-Route::get('/bookingDetails',[BookingController::class, 'bookingDetails']);
-Route::get('/editBooking',[BookingController::class, 'editBooking']);
+Route::get('/bookingDetails/{id}',[BookingController::class, 'bookingDetails']);
+Route::get('/editBooking/{id}',[BookingController::class, 'editBooking']);
+Route::post('/editBooking/edit',[BookingController::class, 'updateBooking']);
 
 // setting route start
 Route::get('/setting',[SettingController::class, 'index']);

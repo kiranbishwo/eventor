@@ -20,10 +20,17 @@ class FrontVendorController extends Controller
         $data= array();
         if(Session::has('vendorLoginId')){
             $data = Vendor::where('id',Session::get('vendorLoginId'))->first();
+
             session(['vendorName' => $data->name]);
             session(['vendorEmail' => $data->email]);
             session(['service' => $data->service]);
-            return view('frontend.vendor-profile', ['data'=>$data]);
+            $invoice = Invoice::All();
+            $subpackage = Subpackage::where('addedBy',Session::get('vendorLoginId'))->get();
+
+            // count package
+            $sublist = DB::table('subpackages')->where('addedBy',Session::get('vendorLoginId'))->get();
+            $count = $sublist->count();
+            return view('frontend.vendor-profile', ['data'=>$data,'subpackage'=>$subpackage,'invoice'=>$invoice, 'count'=> $count]);
 
         }else{
             return view('frontend.vendor-login');

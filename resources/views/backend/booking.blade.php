@@ -33,49 +33,43 @@
                                 <h5>Booking Details</h5>
                             </div>
                         </div>
-                        
-                       
-                        
                     </div>
                     <div class="card-body table-border-style">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table" id="datatable">
                                 <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>Package Name</th>
                                         <th>User Name</th>
                                         <th>Booking Date</th>
-                                        <th>Payment Status</th>
+                                        <th>Total Amount</th>
+                                        <th>Payment Method</th>
                                         <th>Event Status</th>
                                         <th>View Detail</th>
                                         <th>Edit</th>
-                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($invoice as $invoice)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Everest Trek</td>
-                                        <td>Binay Doi</td>
-                                        <td>2022/2/2</td>
-                                        <td><span class="badge badge-success">Paid</span></td>
-                                        <td><span class="badge badge-success">Active</span></td>
-                                        <td><a href="bookingDetails" type="button" class="btn btn-warning btn-sm"><i class="feather mr-2 icon-info"></i>View</a></td>
-                                        <td><a href="editBooking" type="button" class="btn btn-info btn-sm"><i class="feather mr-2 icon-info"></i>Edit</a></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalLive"><i class="feather mr-2 icon-slash"></i>Delete</button></td>
+                                        <td>{{ $invoice->id }}</td>
+                                        <td>{{ $invoice->name }}</td>
+                                        <th>{{ $invoice->user_name }}</th>
+                                        <th> {{ $invoice->buy_date }}</th>
+                                        <th>Rs. {{ $invoice->amount }}</th>
+                                        <th>{{ $invoice->pmt_method }}</th>
+                                        <td>@if($invoice->status=="Inactive") 
+                                                <span class="badge badge-danger">{{ $invoice->status }}</span>
+                                            @else 
+                                                <span class="badge badge-success">{{ $invoice->status }}</span>
+                                            @endif</td>
+                                        <td><a href="{{ url('bookingDetails/'.$invoice->id) }}" type="button" class="btn btn-warning btn-sm"><i class="feather mr-2 icon-info"></i>View</a></td>
+                                        <td><a href="{{ ('editBooking/'.$invoice->id) }}" type="button" class="btn btn-info btn-sm"><i class="feather mr-2 icon-info"></i>Edit</a></td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Annapurna Trek</td>
-                                        <td>Saurab John</td>
-                                        <td>2022/2/2</td>
-                                        <td><span class="badge badge-danger">Unpaid</span></td>
-                                        <td><span class="badge badge-danger">Inactive</span></td>
-                                        <td><a href="bookingDetails" type="button" class="btn btn-warning btn-sm"><i class="feather mr-2 icon-info"></i>View</a></td>
-                                        <td><a href="editBooking" type="button" class="btn btn-info btn-sm"><i class="feather mr-2 icon-info"></i>Edit</a></td>
-                                        <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalLive"><i class="feather mr-2 icon-slash"></i>Delete</button></td>
-                                    </tr>
+                                    
+                                    @endforeach
+                                    
 									
                                 
                                 </tbody>
@@ -92,21 +86,4 @@
     </div>
 </div>
 
-<div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLiveLabel">Delete Conformation!!!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <p class="mb-0">Are you sure, you want to delete this Booking!</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn  btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn  btn-danger">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

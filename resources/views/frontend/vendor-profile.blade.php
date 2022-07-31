@@ -16,19 +16,46 @@
                           <div class="col-4">
                             <div class="text-center rounded p-3" style="background-color: #7DCE13;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                               <h4 class="text-white">Total <br> Revenue</h4>
+                                
                               <h2 class="text-white">Rs. 10000</h2>
                             </div>
                           </div>
                           <div class="col-4">
                             <div class="text-center rounded p-3" style="background-color: #B93160;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                               <h4 class="text-white">Total <br> Packages</h4>
-                              <h2 class="text-white">5</h2>
+                              <h2 class="text-white">{{ $count }}</h2>
                             </div>
                           </div>
                           <div class="col-4">
                             <div class="text-center rounded p-3" style="background-color: #1F4690;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                              <h4 class="text-white">Running <br> Packages</h4>
-                              <h2 class="text-white">5</h2>
+                              <h4 class="text-white">Running <br> invoices</h4>
+                                @php 
+                                    $sub_id = array();
+                                    
+                                @endphp
+                                @foreach($subpackage as $subpackage)
+                                    @php
+                                        array_push($sub_id,$subpackage->subid);
+                                    @endphp
+                                @endforeach
+                                @php
+                                    $subpackage_count = count($sub_id);
+                                    $invoiceCount = 0;
+                                @endphp
+                                @foreach($invoice as $invoice) 
+                                    @php
+                                        
+                                        $subpackage_idarr = explode(',',$invoice->invSubid)
+                                    @endphp
+                                    @for($i=0;$i< $subpackage_count ; $i++)
+                                        @if(in_array($sub_id[$i], $subpackage_idarr))
+                                            @php 
+                                            $invoiceCount =  $invoiceCount+1;
+                                            @endphp
+                                        @endif
+                                    @endfor
+                                @endforeach
+                              <h2 class="text-white">{{ $invoiceCount }}</h2>
                             </div>
                           </div>
   

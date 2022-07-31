@@ -41,7 +41,7 @@ class FrontUserController extends Controller
             $subpackage = Subpackage::All();
             // dd($subpackage);
 
-            return view('frontend.userinvoice-detail', ['invoice'=>$invoice, 'subpackage'=>$subpackage]);
+            return view('frontend.userinvoice-detail', ['invoice'=>$invoice, 'subpackage'=>$subpackage,'mode'=>'user']);
 
     }
 
