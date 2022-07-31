@@ -101,6 +101,9 @@
                     <a class="nav-link" href="{{ url('blogs') }}">Blog</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="{{ url('front-gallery') }}">Gallery</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="{{ url('aboutus') }}">About</a>
                   </li>
                   <li class="nav-item">

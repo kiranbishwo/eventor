@@ -25,6 +25,7 @@
             
 
             <!-- prject ,team member start -->
+            @if(Session::get('loginId')=='Admin')
             <div class="col-md-3">
                 <div class="card table-card">
                     <div class="card-header ">
@@ -33,6 +34,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             <div class="col-md-3">
                 <div class="card table-card">
                     <div class="card-header ">

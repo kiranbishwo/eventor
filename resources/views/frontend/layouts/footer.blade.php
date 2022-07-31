@@ -12,7 +12,12 @@
             <div class="col-sm-6 col-md-4 col-xl-4">
                 <div class="single-footer-widget footer_2">
                     <h4>Important Links</h4>
+                    @if(session()->has('vendorLoginId'))
+                    <a class="text-muted" href="{{ url('/vendor-profile/') }}">Vendor Profile</a><br>
+                    @else 
                     <a href="{{ url('vendor-login') }}" class="text-muted">Vandor Login</a><br><br>
+                    @endif
+                    
                     <a href="{{ url('aboutus') }}" class="text-muted">About Us</a><br><br>
                     <a href="{{ url('contactus') }}" class="text-muted">Contact Us</a><br><br>
                     <a href="{{ url('packages') }}" class="text-muted">Packages</a><br><br>

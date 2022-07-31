@@ -58,6 +58,7 @@
 					<li class="nav-item pcoded-menu-caption">
 						<label>Navigation</label>
 					</li>
+					
 					<li class="nav-item">
 					    <a href="{{ url('/dashboard')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
 					</li>
@@ -73,9 +74,11 @@
                     <li class="nav-item">
 					    <a href="{{ url('/blog')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-bold"></i></span><span class="pcoded-mtext">Blog</span></a>
 					</li>
+					@if(Session::get('role')=='Admin')
                     <li class="nav-item">
 					    <a href="{{ url('/team')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Our Teams</span></a>
 					</li>
+					@endif
                     <li class="nav-item">
 					    <a href="{{ url('/vendor')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Vendor</span></a>
 					</li>
@@ -85,10 +88,11 @@
                     <li class="nav-item">
 					    <a href="{{ url('/gallery')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-film"></i></span><span class="pcoded-mtext">Gallery</span></a>
 					</li>
-                    
+                    @if(Session::get('role')=='Admin')
                     <li class="nav-item">
 					    <a href="{{ url('/setting')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Setting</span></a>
 					</li>
+					@endif
 
 			
 				

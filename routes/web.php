@@ -38,6 +38,7 @@ use App\Http\Controllers\PaymentController;
 Route::get('/',[FrontHomeController::class, 'home']);
 Route::get('aboutus/',[FrontHomeController::class, 'aboutus']);
 Route::get('contactus/',[FrontHomeController::class, 'contactus']);
+Route::get('front-gallery/',[FrontHomeController::class, 'gallery']);
 Route::get('blogs/',[FrontHomeController::class, 'blogs']);
 Route::get('blog-detail/{title}',[FrontHomeController::class, 'blogdetail']);
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Blog;
+use App\Models\Gallery;
 use DB;
  
 class FrontHomeController extends Controller
@@ -23,6 +24,11 @@ class FrontHomeController extends Controller
     }
     public function contactus(){
         return view('frontend.contact');
+    }
+    public function gallery(){
+        $gallery = Gallery::all();
+        // dd($gallery);
+        return view('frontend.gallery',['gallery'=> $gallery]);
     }
     public function blogs(){
         $blog = DB::table('blogs')->take(5)->get();
