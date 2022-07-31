@@ -89,9 +89,9 @@ $(document).ready(function(){
         dataType:'json',
         success:function(data){
             if(data.status ==200){
-                Command: toastr["success"]("Success", "Blog Added Sucessfully");
+                Command: toastr["success"]("Success", "Booking updated Sucessfully");
             }else{
-                Command: toastr["error"]("Failed", "Unable to Add Blog");
+                Command: toastr["error"]("Failed", "Unable to update booking");
             }
 
             

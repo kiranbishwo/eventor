@@ -64,7 +64,7 @@ class CategoryController extends Controller
             ]);
             return Response()->json([
                 'status' => 200,
-                'message' => 'Category Updated Successfully',
+                'message' => 'Booking Updated Successfully',
             ]);
         }
     }

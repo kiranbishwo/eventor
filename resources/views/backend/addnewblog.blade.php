@@ -44,7 +44,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="photo">Cover Photo</label>
-                                <input type="file" id="photo" name="photo" class="form-control-file" id="photo" required>
+                                <input type="file" id="photo" name="photo" class="form-control-file" id="photo" required onchange="document.getElementById('previewImg').src = window.URL.createObjectURL(this.files[0])">
+                                <div class="row my-3">
+                                    <div class="col-md-3">
+                                        <img src="" id="previewImg" alt="" class="w-100">
+                                    </div>
+                                </div>
                             </div>
                            
                               <input class="btn btn-primary " name="submit" type="submit" value="Add Blog">
