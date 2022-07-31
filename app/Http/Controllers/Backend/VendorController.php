@@ -155,6 +155,7 @@ class VendorController extends Controller
                     'contact' => $req->input('contact'),
                     'status' => $req->input('status'),
                     'address' => $req->input('address'),
+                    'password' => Hash::make($req->input('password')),
                     'content' => $req->input('content'),
                     'photo' => $newImageName
                 ]);
@@ -169,6 +170,7 @@ class VendorController extends Controller
                     'service' => $req->input('service'),
                     'contact' => $req->input('contact'),
                     'status' => $req->input('status'),
+                    'password' => Hash::make($req->input('password')),
                     'address' => $req->input('address'),
                     'content' => $req->input('content'),
                 ]);

@@ -8,8 +8,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Exception;
 use App\Models\Team;
+use App\Models\Package;
+use App\Models\Blog;
+use App\Models\Invoice;
+use App\Models\Vendor;
+use App\Models\Subpackage;
+use App\Models\User;
 use Response;
 use Session;
+use DB;
 
 class LoginController extends Controller
 {
@@ -33,10 +40,6 @@ class LoginController extends Controller
                 return redirect()->back()->with('error','Password Not Matched.');
             }
         }else{
-            // return Response()->json([
-            //     'status' => 400,
-            //     'message' => 'Email not Registered',
-            // ]);
             return redirect()->back()->with('error','Email not Registered.');
         }  
     }
@@ -47,7 +50,17 @@ class LoginController extends Controller
             session(['name' => $data->name]);
             session(['role' => $data->role]);
             session(['photo' => $data->photo]);
-            return view('backend.index');
+            $revenue = DB::table('invoices')
+            ->sum('amount');
+            $count_package = Package::count();
+            $count_team = Team::count();
+            $count_blog = Blog::count();
+            $count_booking = Invoice::count();
+            $count_vendor = Vendor::count();
+            $count_subpkg = Subpackage::count();
+            $count_user = User::count();
+            // dd($count_package);
+            return view('backend.index', ['count_package'=>$count_package,'count_team'=>$count_team,'count_blog'=>$count_blog,'count_booking'=>$count_booking, 'count_vendor'=>$count_vendor,'count_subpkg'=>$count_subpkg ,'count_user'=>$count_user,'revenue'=>$revenue]);
 
         }else{
             return view('backend.login');
@@ -55,6 +68,15 @@ class LoginController extends Controller
        
        
     }
+    public function userlist(){
+        if(Session::has('loginId')){
+            $user = User::all();
+            return view('backend.userlist',['user'=>$user]);
+        }else{
+            return view('backend.login');
+        }
+    }
+
     public function logout(){
         Session::flush();
         return redirect('/dashboard');

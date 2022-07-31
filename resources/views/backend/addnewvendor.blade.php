@@ -64,7 +64,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="address">Description</label>
+                                <label for="address">Address</label>
                                 <textarea id="address" name="address" class="form-control summernote" row="3"></textarea>
                             </div>
                             <div class="form-group">

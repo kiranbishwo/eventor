@@ -62,7 +62,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="address">Description</label>
+                                <label for="address">Address</label>
                                 <textarea id="address" name="address" class="form-control summernote" row="3">{{$vendor['address']}}</textarea>
                             </div>
                             <div class="form-group">
@@ -77,6 +77,10 @@
                                         <img src="{{ url('images/'.$vendor['photo']) }}" id="previewImg" alt="" class="w-100">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact">Password (Default : eventor)</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Contact Number" required value="eventor">
                             </div>
                            
                               <input class="btn btn-primary " name="submit" type="submit" value="Update Vendor">

@@ -135,6 +135,8 @@ Route::get('/payment-verify/',[PaymentController::class, 'verify']);//actual res
 // Route::get('/login',[LoginController::class, 'login']);
 Route::post('/loginadmin',[LoginController::class, 'postLogin'])->name('login');
 Route::get('/dashboard',[LoginController::class, 'dashboard']);
+Route::get('/admin',[LoginController::class, 'dashboard']);
+Route::get('/userlist',[LoginController::class, 'userlist']);
 Route::get('/logout',[LoginController::class, 'logout']);
 
 Route::get('index',[LoginController::class, 'dashboard']);

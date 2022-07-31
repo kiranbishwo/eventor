@@ -59,7 +59,7 @@
 						<label>Navigation</label>
 					</li>
 					<li class="nav-item">
-					    <a href="{{ url('/')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+					    <a href="{{ url('/dashboard')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
 					</li>
                     <li class="nav-item">
 					    <a href="{{ url('/category')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-grid"></i></span><span class="pcoded-mtext">Category</span></a>
@@ -78,6 +78,9 @@
 					</li>
                     <li class="nav-item">
 					    <a href="{{ url('/vendor')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Vendor</span></a>
+					</li>
+                    <li class="nav-item">
+					    <a href="{{ url('/userlist')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Users</span></a>
 					</li>
                     <li class="nav-item">
 					    <a href="{{ url('/gallery')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-film"></i></span><span class="pcoded-mtext">Gallery</span></a>
