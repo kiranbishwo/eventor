@@ -5,7 +5,7 @@
     <b>User</b><br>
     <p class="text-black-50">{{ Session::get('email') }}</p>
     <div class="row login_nav border">
-        <a href="{{ url('user-profile ') }}" class="{{ "user-profile"== request()->path()  ? "active" : "" }}"">Profile</a>
+        <a href="{{ url('user-profile ') }}" class="{{ "user-profile"== request()->path()   ? "active" : "" }}"">Profile</a>
         <a href=" {{ url('user-update-profile') }}" class="{{ "user-update-profile"== request()->path()  ? "active" : "" }}" >Update Profile</a>
         <a href=" {{ url('user-change-password') }}" class="{{ "user-change-password"== request()->path() ? "active" : "" }}">Change Password</a>
         <a href="{{ url('user-logout') }}">logout</a>

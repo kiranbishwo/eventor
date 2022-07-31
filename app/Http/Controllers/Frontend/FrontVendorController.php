@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Vendor;
 use App\Models\Package;
 use App\Models\Subpackage;
+use App\Models\Invoice;
 use Session;
 use DB;
 
@@ -36,8 +37,29 @@ class FrontVendorController extends Controller
         return view('frontend.update-profile', ['mode'=>'vendor','data'=>$data]);
     }
     public function vendorinvoice(){
-        return view('frontend.invoice');
+
+        $subpackage = Subpackage::where('addedBy',Session::get('vendorLoginId'))->get(['subpackages.id as subid']);
+        $invoice = Invoice::join('packages', 'packages.id', '=', 'invoices.package_id')
+        ->get(['invoices.id as invid','invoices.amount','invoices.status','invoices.pmt_method','invoices.buy_date', 'invoices.subpackage_id as invSubid', 'packages.name']);
+        // dd($invoice);
+        
+        return view('frontend.invoice',['invoice'=>$invoice, 'subpackage'=>$subpackage]);
     }
+    // vendor invoice detail
+    public function vendorInvloiceDetail($id){
+        
+            
+        // $invoice = Invoice::where('user_id',Session::get('userLoginId'))->get();
+        $invoice = Invoice::join('packages', 'packages.id', '=', 'invoices.package_id')
+        ->where('invoices.id', $id)
+        ->get(['invoices.*', 'packages.name','packages.price','packages.category', 'packages.service']);
+        // dd($invoice);
+        $subpackage = Subpackage::All();
+        // dd($subpackage);
+
+        return view('frontend.userinvoice-detail', ['invoice'=>$invoice, 'subpackage'=>$subpackage, 'mode'=>'vendor']);
+
+}
     public function changepassword(){
         return view('frontend.change-password',['mode'=>'vendor']);
     }
@@ -47,7 +69,7 @@ class FrontVendorController extends Controller
 
      // loadtable
     public function loadtable(){
-        $package = Subpackage::All();
+        $package = Subpackage::where('addedBy',Session::get('vendorLoginId'))->get();
         return response()->json([
             'package'=> $package,
         ]);

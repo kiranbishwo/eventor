@@ -101,16 +101,17 @@
                     <a class="nav-link" href="{{ url('blogs') }}">Blog</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('vendor-login') }}">Vendor Login</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link" href="{{ url('aboutus') }}">About</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('contactus') }}">Contact</a>
                   </li>
                   <li class="d-none d-lg-block">
+                    @if(session()->has('userLoginId'))
+                    <a class="btn_1" href="{{ url('/user-profile/') }}"><i class="ti-user"></i></a>
+                    @else 
                     <a class="btn_1" href="{{ url('user-login') }}">Login</a>
+                    @endif
                   </li>
                 </ul>
               </div>

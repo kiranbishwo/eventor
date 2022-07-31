@@ -65,9 +65,11 @@ Route::get('/mypackage/delete/{id}',[FrontVendorController::class, 'delete']);
 Route::post('/mypackage/destroy',[FrontVendorController::class, 'destroy']);
 Route::get('/update-package/{id}',[FrontVendorController::class, 'edit']);
 Route::get('/package/subpackage-info/{id}',[FrontVendorController::class, 'subpackageIfno']);
+Route::get('vendor-invoice-detail/{id}',[FrontVendorController::class, 'vendorInvloiceDetail']);//sser package detail
 
 // update vendor and user profile
 Route::post('update-profile/',[FrontUserController::class, 'updateprofile']);
+Route::get('user-invoice-detail/{id}',[FrontUserController::class, 'userInvloiceDetail']);//sser package detail
 Route::post('password-change/',[FrontUserController::class, 'passwordchange']);
 // update vendor and user profile
 

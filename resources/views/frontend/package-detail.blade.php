@@ -105,7 +105,12 @@
                             </li>
 
                         </ul>
-                        <button  class="btn_1 d-block w-100 enrole_package">Enroll the course</button>
+                        @if(session()->has('userLoginId'))
+                            <button  class="btn_1 d-block w-100 enrole_package">Enroll the course</button>
+                        @else 
+                            <a class="btn_1 d-block w-100 " href="{{ url('user-login') }}">Enroll the course</a>
+                        @endif
+                        
                     </div>
 
                     

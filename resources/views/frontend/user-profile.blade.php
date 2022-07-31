@@ -48,39 +48,31 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($invoice as $invoice)
                             <tr>
-                                <th>123</th>
-                                <th>My package</th>
-                                <th>2022</th>
-                                <th>Rs. 4044</th>
-                                <th><span class="badge badge-danger">Expired</span></th>
-                                <th><button class="btn btn-sm btn_4">Details</button></th>
+                                <th>{{ $invoice->id }}</th>
+                                <th>{{ $invoice->name }}</th>
+                                <th>{{ $invoice->buy_date }}</th>
+                                <th>Rs. {{ $invoice->amount }}</th>
+                                <th>
+                                    @if($invoice->status=="Inactive") 
+                                        <span class="badge badge-danger">{{ $invoice->status }}</span>
+                                    @else 
+                                        <span class="badge badge-success">{{ $invoice->status }}</span>
+                                    @endif
+                                </th>
+                                <th><a href="{{ url('user-invoice-detail/'.$invoice->id) }}" class="rounded btn_4" >Details</a></th>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-
-            <!-- <div class="row">
-                <div class="col-md-3 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Change Password</h4>
-                    </div>
-                   <div class="d-flex justify-content-between align-items-center experience"></div><br>
-                    <div class="col-md-12"><label class="labels">set password</label><input type="password" class="form-control" value=""></div> <br>
-                    <div class="col-md-12"><label class="labels">re enter password</label><input type="password" class="form-control" placeholder="" value=""></div>
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button"> submit</button></div>
-
-                </div>
-                
-            </div> -->
         </div>
         </div>
         </div>
     </div>
 </section>
     
-<!--::profile end::-->
 
 @endsection

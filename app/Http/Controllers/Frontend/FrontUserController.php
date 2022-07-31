@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Session;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Invoice;
+use App\Models\Subpackage;
 
 class FrontUserController extends Controller
 {
@@ -16,11 +18,31 @@ class FrontUserController extends Controller
             $data = User::where('id',Session::get('userLoginId'))->first();
             session(['name' => $data->name]);
             session(['email' => $data->email]);
-            return view('frontend.user-profile', ['data'=>$data]);
+            
+            // $invoice = Invoice::where('user_id',Session::get('userLoginId'))->get();
+            $invoice = Invoice::join('packages', 'packages.id', '=', 'invoices.package_id')
+            ->where('user_id', Session::get('userLoginId'))
+            ->get(['invoices.*', 'packages.name']);
+
+            return view('frontend.user-profile', ['data'=>$data,'invoice'=>$invoice]);
 
         }else{
             return view('frontend.user-login');
         }
+    }
+    public function userInvloiceDetail($id){
+        
+            
+            // $invoice = Invoice::where('user_id',Session::get('userLoginId'))->get();
+            $invoice = Invoice::join('packages', 'packages.id', '=', 'invoices.package_id')
+            ->where('invoices.id', $id)
+            ->get(['invoices.*', 'packages.name','packages.price','packages.category', 'packages.service']);
+            // dd($invoice);
+            $subpackage = Subpackage::All();
+            // dd($subpackage);
+
+            return view('frontend.userinvoice-detail', ['invoice'=>$invoice, 'subpackage'=>$subpackage]);
+
     }
 
     public function userupdate(){
@@ -77,8 +99,5 @@ class FrontUserController extends Controller
                 'message' => 'User Updated Successfully',
             ]);
         }
-    }
-
-
-    
+    }    
 }

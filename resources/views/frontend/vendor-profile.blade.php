@@ -59,54 +59,6 @@
                                 </tr>
                             </form>
                         </table>
-                        <h2>Booking Requests</h2>
-                        <hr>
-                        <table class="table table-striped mt-4">
-                            <thead class="text-white" style="background-color:#FF9100;">
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Package</th>
-                                    <th>Date</th>
-                                    <th>Amaunt</th>
-                                    <th>Status</th>
-                                    <th>Detail</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>123</th>
-                                    <th>My package</th>
-                                    <th>2022</th>
-                                    <th>Rs. 4044</th>
-                                    <th><span class="badge badge-danger">Expired</span></th>
-                                    <th><button class="rounded btn_4">Details</button></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h2>Running Booking</h2>
-                        <hr>
-                        <table class="table table-striped mt-4">
-                            <thead class="text-white" style="background-color:#FF9100;">
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Package</th>
-                                    <th>Date</th>
-                                    <th>Amaunt</th>
-                                    <th>Status</th>
-                                    <th>Detail</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>123</th>
-                                    <th>My package</th>
-                                    <th>2022</th>
-                                    <th>Rs. 4044</th>
-                                    <th><span class="badge badge-danger">Expired</span></th>
-                                    <th><button class="rounded btn_4">Details</button></th>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
   

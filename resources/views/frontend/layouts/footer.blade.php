@@ -11,19 +11,13 @@
             </div>
             <div class="col-sm-6 col-md-4 col-xl-4">
                 <div class="single-footer-widget footer_2">
-                    <h4>Newsletter</h4>
-                    <p>Stay updated with our latest trends Seed heaven so said place winged over given forth fruit.
-                    </p>
-                    <form action="#">
-                        <div class="form-group">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder='Enter email address' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
-                                <div class="input-group-append">
-                                    <button class="btn btn_1" type="button"><i class="ti-angle-right"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    <h4>Important Links</h4>
+                    <a href="{{ url('vendor-login') }}" class="text-muted">Vandor Login</a><br><br>
+                    <a href="{{ url('aboutus') }}" class="text-muted">About Us</a><br><br>
+                    <a href="{{ url('contactus') }}" class="text-muted">Contact Us</a><br><br>
+                    <a href="{{ url('packages') }}" class="text-muted">Packages</a><br><br>
+                    
+                    
                     <div class="social_icon">
                         <a href="#"> <i class="ti-facebook"></i> </a>
                         <a href="#"> <i class="ti-twitter-alt"></i> </a>
