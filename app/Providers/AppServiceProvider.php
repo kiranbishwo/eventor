@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Category;
+use App\Models\Setting;
 use Illuminate\Pagination\Paginator;
 use View;
 class AppServiceProvider extends ServiceProvider
@@ -28,8 +29,9 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function($view)
         {
+            $setting = Setting::all();
             $category = Category::All();
-            $view->with('category', $category);
+            $view->with('category', $category)->with('setting',$setting);
         });
     }
 }

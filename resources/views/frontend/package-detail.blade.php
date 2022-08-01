@@ -183,8 +183,9 @@
                     <div class="col-md-6">
                         <h4>Payment Process</h4>
                         <hr>
-                        <span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, maxime? Ullam, sunt? Beatae assumenda veritatis ad minus ab quibusdam rerum!</span><br>
-                        <span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, maxime? Ullam, sunt? Beatae assumenda veritatis ad minus ab quibusdam rerum!</span><br>
+                        <span>If you want to pay via Fonepay please send payment invoice Screenshoot on watsapp or Viber Phone number: 9843019821 or you can directly contact us on 9825181136</span><br><br>
+                        
+                        <span>Or you can directly pay via esewa </span><br>
                         <hr>
                         <h4>Or yo can pay via esewa</h4>
                         <hr>

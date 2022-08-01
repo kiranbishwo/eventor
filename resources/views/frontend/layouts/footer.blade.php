@@ -35,9 +35,11 @@
                 <div class="single-footer-widget footer_2">
                     <h4>Contact us</h4>
                     <div class="contact_info">
-                        <p><span> Address :</span> Hath of it fly signs bear be one blessed after </p>
-                        <p><span> Phone :</span> +2 36 265 (8060)</p>
-                        <p><span> Email : </span>info@colorlib.com </p>
+                        @foreach($setting as $setting)
+                        <p><span> Address :</span> {{ $setting->address }} </p>
+                        <p><span> Phone :</span> {{ $setting->phone}} | {{ $setting->mobile }}</p>
+                        <p><span> Email : </span>{{ $setting->email }} </p>
+                        @endforeach
                     </div>
                 </div>
             </div>

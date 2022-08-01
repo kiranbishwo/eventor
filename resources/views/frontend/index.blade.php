@@ -9,12 +9,11 @@
                 <div class="col-lg-6 col-xl-6">
                     <div class="banner_text">
                         <div class="banner_text_iner">
-                            <h5>Every child yearns to learn</h5>
-                            <h1>Making Your Childs World Better</h1>
-                            <p>Replenish seasons may male hath fruit beast were seas saw you arrie said man beast whales his void unto last session for bite. Set have great you'll male grass yielding yielding man
+                            <h5>Make your events more fun!</h5>
+                            <h1>Making Your events more familiar</h1>
+                            <p>A family dinner, a wedding, a naming ceremony, a funeral. Because these kind of events are so commonplace in our lives, we tend to overlook their importance. Funnily, in a crisis like COVID-19 the things that people missed the most was their ability to catch up with loved ones.
                             </p>
-                            <a href="#" class="btn_1">View Course </a>
-                            <a href="#" class="btn_2">Get Started </a>
+                            <a href="{{ url('packages') }}" class="btn_1">View Package </a>
                         </div>
                     </div>
                 </div>
@@ -30,34 +29,34 @@
                 <div class="col-sm-6 col-xl-3 align-self-center">
                     <div class="single_feature_text ">
                         <h2>Awesome <br> Feature</h2>
-                        <p>Set have great you male grass yielding an yielding first their you're have called the abundantly fruit were man </p>
-                        <a href="#" class="btn_1">Read More</a>
+                        <p>A wonderful platform to experience our features and a way to get the bestest way to get familiar with eventor.  </p>
+                        <a href="{{ url('aboutus') }}" class="btn_1">Read More</a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="single_feature">
                         <div class="single_feature_part">
-                            <span class="single_feature_icon"><i class="ti-layers"></i></span>
-                            <h4>Better Future</h4>
-                            <p>Set have great you male grasses yielding yielding first their to called deep abundantly Set have great you male</p>
+                            <span class="single_feature_icon"><i class="ti-face-smile"></i></span>
+                            <h4>Better experience</h4>
+                            <p>We have provided better services alog with verious extra surprices, Working with us is like working with close friends</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="single_feature">
                         <div class="single_feature_part">
-                            <span class="single_feature_icon"><i class="ti-new-window"></i></span>
-                            <h4>Qualified Trainers</h4>
-                            <p>Set have great you male grasses yielding yielding first their to called deep abundantly Set have great you male</p>
+                            <span class="single_feature_icon"><i class="ti-lock"></i></span>
+                            <h4>Security</h4>
+                            <p>We do various paper agrement which provide you extra security on tour dream event</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="single_feature">
                         <div class="single_feature_part single_feature_part_2">
-                            <span class="single_service_icon style_icon"><i class="ti-light-bulb"></i></span>
-                            <h4>Job Oppurtunity</h4>
-                            <p>Set have great you male grasses yielding yielding first their to called deep abundantly Set have great you male</p>
+                            <span class="single_service_icon style_icon"><i class="ti-flag-alt"></i></span>
+                            <h4>Reliabilty</h4>
+                            <p>We have plartform which gives you more options of nearest vendor with better price. We are the only one ant first one to provide this type of service in Nepal.  </p>
                         </div>
                     </div>
                 </div>
@@ -132,7 +131,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-5">
                     <div class="section_tittle text-center">
-                        <p>popular courses</p>
+                        <p>popular Packages</p>
                         <h2>Special Packages</h2>
                     </div>
                 </div>

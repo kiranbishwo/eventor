@@ -40,7 +40,7 @@ class PaymentController extends Controller
             'buy_date' => $buy_date,
             'status' => $status
         ]);
-        return redirect('/payFonepaySu');
+        return redirect()->back()->with('success','Transaction Successful.');
         
     }
     public function payeSewapay(Request $req){

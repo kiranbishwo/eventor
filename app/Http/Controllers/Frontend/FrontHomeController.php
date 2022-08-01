@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Blog;
 use App\Models\Gallery;
+use App\Models\Setting;
 use DB;
  
 class FrontHomeController extends Controller
@@ -23,16 +24,18 @@ class FrontHomeController extends Controller
         return view('frontend.about');
     }
     public function contactus(){
-        return view('frontend.contact');
+        $setting = Setting::all();
+        return view('frontend.contact', ['setting'=>$setting]);
     }
     public function gallery(){
         $gallery = Gallery::all();
-        // dd($gallery);
+        
         return view('frontend.gallery',['gallery'=> $gallery]);
     }
     public function blogs(){
         $blog = DB::table('blogs')->take(5)->get();
-        return view('frontend.blog', ['blog'=>$blog]);
+        $blogs = DB::table('blogs')->get();
+        return view('frontend.blog', ['blog'=>$blog,'blogs'=>$blogs]);
     }
     public function blogdetail($id){
         $blog = Blog::find($id);
@@ -44,5 +47,7 @@ class FrontHomeController extends Controller
     public function userregister(){
         return view('frontend.user-signup');
     }
+
+    
 
 }
