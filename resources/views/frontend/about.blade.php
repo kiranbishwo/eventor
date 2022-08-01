@@ -8,38 +8,34 @@
                 <div class="col-sm-6 col-xl-3 align-self-center">
                     <div class="single_feature_text ">
                         <h2>Awesome <br> Feature</h2>
-                        <p>Set have great you male grass yielding an yielding first their you're
-                            have called the abundantly fruit were man </p>
-                        <a href="#" class="btn_1">Read More</a>
+                        <p>A wonderful platform to experience our features and a way to get the bestest way to get familiar with eventor.  </p>
+                        <a href="{{ url('aboutus') }}" class="btn_1">Read More</a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="single_feature">
                         <div class="single_feature_part">
-                            <span class="single_feature_icon"><i class="ti-layers"></i></span>
-                            <h4>Better Future</h4>
-                            <p>Set have great you male grasses yielding yielding first their to
-                                called deep abundantly Set have great you male</p>
+                            <span class="single_feature_icon"><i class="ti-face-smile"></i></span>
+                            <h4>Better experience</h4>
+                            <p>We have provided better services alog with verious extra surprices, Working with us is like working with close friends</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="single_feature">
                         <div class="single_feature_part">
-                            <span class="single_feature_icon"><i class="ti-new-window"></i></span>
-                            <h4>Qualified Trainers</h4>
-                            <p>Set have great you male grasses yielding yielding first their to called
-                                deep abundantly Set have great you male</p>
+                            <span class="single_feature_icon"><i class="ti-lock"></i></span>
+                            <h4>Security</h4>
+                            <p>We do various paper agrement which provide you extra security on tour dream event</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
                     <div class="single_feature">
                         <div class="single_feature_part single_feature_part_2">
-                            <span class="single_service_icon style_icon"><i class="ti-light-bulb"></i></span>
-                            <h4>Job Oppurtunity</h4>
-                            <p>Set have great you male grasses yielding yielding first their to called deep
-                                abundantly Set have great you male</p>
+                            <span class="single_service_icon style_icon"><i class="ti-flag-alt"></i></span>
+                            <h4>Reliabilty</h4>
+                            <p>We have plartform which gives you more options of nearest vendor with better price. We are the only one ant first one to provide this type of service in Nepal.  </p>
                         </div>
                     </div>
                 </div>
@@ -60,18 +56,13 @@
                 <div class="col-md-5 col-lg-5">
                     <div class="learning_member_text">
                         <h5>About us</h5>
-                        <h2>Learning with Love
-                            and Laughter</h2>
-                        <p>Fifth saying upon divide divide rule for deep their female all hath brind Days and beast
-                            greater grass signs abundantly have greater also
-                            days years under brought moveth.</p>
-                        <ul>
-                            <li><span class="ti-pencil-alt"></span>Him lights given i heaven second yielding seas
-                                gathered wear</li>
-                            <li><span class="ti-ruler-pencil"></span>Fly female them whales fly them day deep given
-                                night.</li>
-                        </ul>
-                        <a href="#" class="btn_1">Read More</a>
+                        <h2>What we providing to our vendors and clients</h2>
+                        <p>Our project Eventor is based on an Event management system which basically provides 
+                            an interface to interact with various events and venues that are happening around. It 
+                            mainly works as a bridge between vendors and users. Our goal is not only to provide 
+                            quality, but also to make it customized. </p>
+                        
+                        <a href="{{ url('aboutus') }}" class="btn_1">Read More</a>
                     </div>
                 </div>
             </div>
@@ -85,26 +76,26 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">1024</span>
-                        <h4>All Teachers</h4>
+                        <span class="counter">20</span>
+                        <h4>All Packages</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
                         <span class="counter">960</span>
-                        <h4> All Students</h4>
+                        <h4> All Clients</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">1020</span>
-                        <h4>Online Students</h4>
+                        <span class="counter">89</span>
+                        <h4>All Vendors</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">820</span>
-                        <h4>Ofline Students</h4>
+                        <span class="counter">50</span>
+                        <h4>All Subpackages</h4>
                     </div>
                 </div>
             </div>
@@ -130,30 +121,26 @@
                             <div class="row">
                                 <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>Really good. Great job, I will definitely be ordering again! Nice work on your event management.</p>
+                                        <h4>Binod Chaudhary</h4>
+                                        <h5>Chaudhary Group</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-xl-2 col-sm-4">
                                     <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
+                                        <img src="{{ url('frontend/assets/img/binod.jpg')}}" alt="#">
                                     </div>
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>I was skeptical at first, but the Eventor team has proven me wrong. Eventor is a great partner that has helped me get my event planning business off the ground. I'm so glad I found them and recommend this company to anyone looking for an easy solution for their event needs!</p>
+                                        <h4>Elon Musk</h4>
+                                        <h5>CEO of SpaceX</h5>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 d-none d-xl-block">
                                     <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
+                                        <img src="{{ url('frontend/assets/img/elon.jpg')}}" alt="#">
                                     </div>
                                 </div>
                             </div>
@@ -162,62 +149,26 @@
                             <div class="row">
                                 <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>Eventor is the best pathfinding software that I have come across. It's incredibly fast, user-friendly and has a sleek design. You can easily see where all of your characters are situated on one screen. I would highly recommend this to anyone who wants to make their games more immersive!</p>
+                                        <h4>Mark Zuckerberg</h4>
+                                        <h5>CEO of META</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-xl-2 col-sm-4">
                                     <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
+                                        <img src="{{ url('frontend/assets/img/mark.jpg')}}" alt="#">
                                     </div>
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>I am using Eventor for event management and I can't imagine using any other system. It is clean, simple, and intuitive. It is easy to set up meetings, see when they are coming up and what the results of them were. I love how every detail of the event is in one place without having to look through multiple spreadsheets or files on my computer or</p>
+                                        <h4>Jeff Bejos</h4>
+                                        <h5>CEO of amajon</h5>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 d-none d-xl-block">
                                     <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial_slider">
-                            <div class="row">
-                                <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
-                                    <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-xl-2 col-sm-4">
-                                    <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 d-none d-xl-block">
-                                    <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                            hath herb divided divide creepeth living shall i call beginning
-                                            third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 d-none d-xl-block">
-                                    <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
+                                        <img src="{{ url('frontend/assets/img/jeff.jpg')}}" alt="#">
                                     </div>
                                 </div>
                             </div>

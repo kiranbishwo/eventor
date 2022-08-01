@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('category');
             $table->string('price');
             $table->string('service');
+            $table->string('days');
             $table->longtext('content');
             $table->string('photo');
             $table->string('status');

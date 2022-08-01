@@ -48,6 +48,8 @@
                                     <option value="Transportation">Transportation</option>
                                     <option value="Catering">Catering</option>
                                     <option value="Seminar Hall">Seminar Hall</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Media">Media</option>
                                     <option value="Decorator">Decorator</option>
                                 </select>
                             </div>

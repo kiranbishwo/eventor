@@ -81,6 +81,7 @@ class PackageController extends Controller
             'service'=>'required',
             'content'=>'required',
             'addedby'=>'required',
+            'days'=>'required',
             'status'=>'required',
             'photo'=>'required|mimes:jpg,png,jpg|max:5048',
         ]);
@@ -100,6 +101,7 @@ class PackageController extends Controller
                 'service' => $req->input('service'),
                 'content' => $req->input('content'),
                 'addedby' => $req->input('addedby'),
+                'days' => $req->input('days'),
                 'status' => $req->input('status'),
                 'photo' => $newImageName
             ]);
@@ -131,6 +133,7 @@ class PackageController extends Controller
                 'price'=>'required',
                 'service'=>'required',
                 'content'=>'required',
+                'days'=>'required',
                 'addedby'=>'required',
                 'status'=>'required',
             ]);
@@ -166,6 +169,7 @@ class PackageController extends Controller
                     'service' => $req->input('service'),
                     'content' => $req->input('content'),
                     'addedby' => $req->input('addedby'),
+                    'days' => $req->input('days'),
                     'status' => $req->input('status'),
                     'photo' => $newImageName
                 ]);
@@ -181,6 +185,7 @@ class PackageController extends Controller
                     'price' => $req->input('price'),
                     'service' => $req->input('service'),
                     'content' => $req->input('content'),
+                    'days' => $req->input('days'),
                     'addedby' => $req->input('addedby'),
                     'status' => $req->input('status'),
                 ]);

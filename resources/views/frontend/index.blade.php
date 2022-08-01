@@ -77,14 +77,13 @@
                 <div class="col-md-5 col-lg-5">
                     <div class="learning_member_text">
                         <h5>About us</h5>
-                        <h2>Learning with Love and Laughter</h2>
-                        <p>Fifth saying upon divide divide rule for deep their female all hath brind Days and beast greater grass signs abundantly have greater also days years under brought moveth.</p>
-                        <ul>
-                            <li><span class="ti-pencil-alt"></span>Him lights given i heaven second yielding seas gathered wear</li>
-                            <li><span class="ti-ruler-pencil"></span>Fly female them whales fly them day deep given night.
-                            </li>
-                        </ul>
-                        <a href="#" class="btn_1">Read More</a>
+                        <h2>What we providing to our vendors and clients</h2>
+                        <p>Our project Eventor is based on an Event management system which basically provides 
+                            an interface to interact with various events and venues that are happening around. It 
+                            mainly works as a bridge between vendors and users. Our goal is not only to provide 
+                            quality, but also to make it customized. </p>
+                        
+                        <a href="{{ url('aboutus') }}" class="btn_1">Read More</a>
                     </div>
                 </div>
             </div>
@@ -98,26 +97,26 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">1024</span>
-                        <h4>All Teachers</h4>
+                        <span class="counter">20</span>
+                        <h4>All Packages</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
                         <span class="counter">960</span>
-                        <h4> All Students</h4>
+                        <h4> All Clients</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">1020</span>
-                        <h4>Online Students</h4>
+                        <span class="counter">89</span>
+                        <h4>All Vendors</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">820</span>
-                        <h4>Ofline Students</h4>
+                        <span class="counter">50</span>
+                        <h4>All Subpackages</h4>
                     </div>
                 </div>
             </div>
@@ -177,21 +176,21 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="learning_member_text">
                         <h5>Advance feature</h5>
-                        <h2>Our Advance Educator Learning System</h2>
-                        <p>Fifth saying upon divide divide rule for deep their female all hath brind mid Days and beast greater grass signs abundantly have greater also use over face earth days years under brought moveth she star</p>
+                        <h2>Our Advance Event Management System</h2>
+                        <p>Eventor is an event management application which works as a bridge between clients and vendors by providing e-services in Kathmandu.</p>
                         <div class="row">
                             <div class="col-sm-6 col-md-12 col-lg-6">
                                 <div class="learning_member_text_iner">
                                     <span class="ti-pencil-alt"></span>
-                                    <h4>Learn Anywhere</h4>
-                                    <p>There earth face earth behold she star so made void two given and also our</p>
+                                    <h4>Become Our Vendor</h4>
+                                    <p>Become our vendor and earn more money than your competitor.</p>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-12 col-lg-6">
                                 <div class="learning_member_text_iner">
                                     <span class="ti-stamp"></span>
-                                    <h4>Expert Teacher</h4>
-                                    <p>There earth face earth behold she star so made void two given and also our</p>
+                                    <h4>Get Better Option</h4>
+                                    <p>Be smart, find better packages for your events.</p>
                                 </div>
                             </div>
                         </div>
@@ -225,26 +224,26 @@
                             <div class="row">
                                 <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void hath herb divided divide creepeth living shall i call beginning third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>Really good. Great job, I will definitely be ordering again! Nice work on your event management.</p>
+                                        <h4>Binod Chaudhary</h4>
+                                        <h5>Chaudhary Group</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-xl-2 col-sm-4">
                                     <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
+                                        <img src="{{ url('frontend/assets/img/binod.jpg')}}" alt="#">
                                     </div>
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void hath herb divided divide creepeth living shall i call beginning third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>I was skeptical at first, but the Eventor team has proven me wrong. Eventor is a great partner that has helped me get my event planning business off the ground. I'm so glad I found them and recommend this company to anyone looking for an easy solution for their event needs!</p>
+                                        <h4>Elon Musk</h4>
+                                        <h5>CEO of SpaceX</h5>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 d-none d-xl-block">
                                     <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
+                                        <img src="{{ url('frontend/assets/img/elon.jpg')}}" alt="#">
                                     </div>
                                 </div>
                             </div>
@@ -253,54 +252,26 @@
                             <div class="row">
                                 <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void hath herb divided divide creepeth living shall i call beginning third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>Eventor is the best pathfinding software that I have come across. It's incredibly fast, user-friendly and has a sleek design. You can easily see where all of your characters are situated on one screen. I would highly recommend this to anyone who wants to make their games more immersive!</p>
+                                        <h4>Mark Zuckerberg</h4>
+                                        <h5>CEO of META</h5>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-xl-2 col-sm-4">
                                     <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_2.png')}}" alt="#">
+                                        <img src="{{ url('frontend/assets/img/mark.jpg')}}" alt="#">
                                     </div>
                                 </div>
                                 <div class="col-xl-4 d-none d-xl-block">
                                     <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void hath herb divided divide creepeth living shall i call beginning third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
+                                        <p>I am using Eventor for event management and I can't imagine using any other system. It is clean, simple, and intuitive. It is easy to set up meetings, see when they are coming up and what the results of them were. I love how every detail of the event is in one place without having to look through multiple spreadsheets or files on my computer or</p>
+                                        <h4>Jeff Bejos</h4>
+                                        <h5>CEO of amajon</h5>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 d-none d-xl-block">
                                     <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial_slider">
-                            <div class="row">
-                                <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
-                                    <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void hath herb divided divide creepeth living shall i call beginning third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-xl-2 col-sm-4">
-                                    <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_3.png')}}" alt="#">
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 d-none d-xl-block">
-                                    <div class="testimonial_slider_text">
-                                        <p>Behold place was a multiply creeping creature his domin to thiren open void hath herb divided divide creepeth living shall i call beginning third sea itself set</p>
-                                        <h4>Michel Hashale</h4>
-                                        <h5> Sr. Web designer</h5>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 d-none d-xl-block">
-                                    <div class="testimonial_slider_img">
-                                        <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
+                                        <img src="{{ url('frontend/assets/img/jeff.jpg')}}" alt="#">
                                     </div>
                                 </div>
                             </div>

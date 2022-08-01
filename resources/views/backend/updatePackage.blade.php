@@ -64,6 +64,10 @@
 						<input type="text" class="form-control" name="price" id="price" placeholder="Enter Basic Prise" required value="{{$package ['price']}}">
 					</div>
 					<div class="form-group">
+						<label for="days">Service Days</label>
+						<input type="text" class="form-control" name="days" id="days" placeholder="Enter Service Days" required value="{{$package ['days']}}">
+					</div>
+					<div class="form-group">
 						<label for="content">Package Description</label>
 						<textarea id="summernote" name="content" class="form-control summernote">{{$package ['content']}}</textarea>
 					</div>

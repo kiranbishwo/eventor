@@ -13,20 +13,13 @@
                         <h2>My Revenue</h2>
                         <hr>
                         <div class="row mb-4">
-                          <div class="col-4">
-                            <div class="text-center rounded p-3" style="background-color: #7DCE13;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                              <h4 class="text-white">Total <br> Revenue</h4>
-                                
-                              <h2 class="text-white">Rs. 10000</h2>
-                            </div>
-                          </div>
-                          <div class="col-4">
+                          <div class="col-6">
                             <div class="text-center rounded p-3" style="background-color: #B93160;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                               <h4 class="text-white">Total <br> Packages</h4>
                               <h2 class="text-white">{{ $count }}</h2>
                             </div>
                           </div>
-                          <div class="col-4">
+                          <div class="col-6">
                             <div class="text-center rounded p-3" style="background-color: #1F4690;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
                               <h4 class="text-white">Running <br> invoices</h4>
                                 @php 

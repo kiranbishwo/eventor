@@ -50,14 +50,14 @@
                             </li>
                             <li>
                                 <a class="justify-content-between d-flex" href="#">
-                                    <p>Time </p>
-                                    <span>1 day</span>
+                                    <p>Service Days</p>
+                                    <span>{{ $package->days }} day</span>
                                 </a>
                             </li>
                             <li>
                                 <a class="justify-content-between d-flex" href="#">
                                     <p>Status </p>
-                                    <span>Available</span>
+                                    <span>{{ $package->status }}</span>
                                 </a>
                             </li>
                             <div class="col-12 p-2 rounded" style="background-color: #F69504;">

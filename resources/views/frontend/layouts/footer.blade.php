@@ -5,8 +5,7 @@
             <div class="col-sm-6 col-md-4 col-xl-3">
                 <div class="single-footer-widget footer_1">
                     <a href="index.html"> <img src="img/logo.png" alt=""> </a>
-                    <p>But when shot real her. Chamber her one visite removal six sending himself boys scot exquisite existend an </p>
-                    <p>But when shot real her hamber her </p>
+                    <p>Our project Eventor is based on an Event management system which basically provides an interface to interact with various events and venues that are happening around. It mainly works as a bridge between vendors and users. </p>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4 col-xl-4">
@@ -36,7 +35,7 @@
                     <h4>Contact us</h4>
                     <div class="contact_info">
                         @foreach($setting as $setting)
-                        <p><span> Address :</span> {{ $setting->address }} </p>
+                        <p><span> Address :</span> Apex College , Mid-Baneshwor kathmandu</p>
                         <p><span> Phone :</span> {{ $setting->phone}} | {{ $setting->mobile }}</p>
                         <p><span> Email : </span>{{ $setting->email }} </p>
                         @endforeach

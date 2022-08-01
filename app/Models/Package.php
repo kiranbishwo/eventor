@@ -10,7 +10,7 @@ class Package extends Model
     use HasFactory;
     protected $table = 'packages';
     protected $append =['service'];
-    protected $fillable = ['name','category','price','content','service','photo','status','addedby'];
+    protected $fillable = ['name','category','price','content','service','photo','status','days','addedby'];
     
     public function setServiceAttribute($value)
     {

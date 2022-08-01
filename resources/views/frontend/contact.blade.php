@@ -51,7 +51,7 @@
             <span class="contact-info__icon"><i class="ti-home"></i></span>
             <div class="media-body">
               <h3>Address</h3>
-              <p>{{ $setting['address'] }}</p>
+              <p>Apex College , Mid-Baneshwor kathmandu</p>
             </div>
           </div>
           <div class="media contact-info">
