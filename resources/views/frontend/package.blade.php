@@ -55,7 +55,7 @@
             <div class="col-xl-5">
                 <div class="section_tittle text-center">
                     <p>tesimonials</p>
-                    <h2>Happy Students</h2>
+                    <h2>Happy Clients</h2>
                 </div>
             </div>
         </div>
@@ -66,30 +66,26 @@
                         <div class="row">
                             <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
                                 <div class="testimonial_slider_text">
-                                    <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                        hath herb divided divide creepeth living shall i call beginning
-                                        third sea itself set</p>
-                                    <h4>Michel Hashale</h4>
-                                    <h5> Sr. Web designer</h5>
+                                    <p>Really good. Great job, I will definitely be ordering again! Nice work on your event management.</p>
+                                    <h4>Binod Chaudhary</h4>
+                                    <h5>Chaudhary Group</h5>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-xl-2 col-sm-4">
                                 <div class="testimonial_slider_img">
-                                    <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
+                                    <img src="{{ url('frontend/assets/img/binod.jpg')}}" alt="#">
                                 </div>
                             </div>
                             <div class="col-xl-4 d-none d-xl-block">
                                 <div class="testimonial_slider_text">
-                                    <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                        hath herb divided divide creepeth living shall i call beginning
-                                        third sea itself set</p>
-                                    <h4>Michel Hashale</h4>
-                                    <h5> Sr. Web designer</h5>
+                                    <p>I was skeptical at first, but the Eventor team has proven me wrong. Eventor is a great partner that has helped me get my event planning business off the ground. I'm so glad I found them and recommend this company to anyone looking for an easy solution for their event needs!</p>
+                                    <h4>Elon Musk</h4>
+                                    <h5>CEO of SpaceX</h5>
                                 </div>
                             </div>
                             <div class="col-xl-2 d-none d-xl-block">
                                 <div class="testimonial_slider_img">
-                                    <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
+                                    <img src="{{ url('frontend/assets/img/elon.jpg')}}" alt="#">
                                 </div>
                             </div>
                         </div>
@@ -98,62 +94,26 @@
                         <div class="row">
                             <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
                                 <div class="testimonial_slider_text">
-                                    <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                        hath herb divided divide creepeth living shall i call beginning
-                                        third sea itself set</p>
-                                    <h4>Michel Hashale</h4>
-                                    <h5> Sr. Web designer</h5>
+                                    <p>Eventor is the best pathfinding software that I have come across. It's incredibly fast, user-friendly and has a sleek design. You can easily see where all of your characters are situated on one screen. I would highly recommend this to anyone who wants to make their games more immersive!</p>
+                                    <h4>Mark Zuckerberg</h4>
+                                    <h5>CEO of META</h5>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-xl-2 col-sm-4">
                                 <div class="testimonial_slider_img">
-                                    <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
+                                    <img src="{{ url('frontend/assets/img/mark.jpg')}}" alt="#">
                                 </div>
                             </div>
                             <div class="col-xl-4 d-none d-xl-block">
                                 <div class="testimonial_slider_text">
-                                    <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                        hath herb divided divide creepeth living shall i call beginning
-                                        third sea itself set</p>
-                                    <h4>Michel Hashale</h4>
-                                    <h5> Sr. Web designer</h5>
+                                    <p>I am using Eventor for event management and I can't imagine using any other system. It is clean, simple, and intuitive. It is easy to set up meetings, see when they are coming up and what the results of them were. I love how every detail of the event is in one place without having to look through multiple spreadsheets or files on my computer or</p>
+                                    <h4>Jeff Bejos</h4>
+                                    <h5>CEO of amajon</h5>
                                 </div>
                             </div>
                             <div class="col-xl-2 d-none d-xl-block">
                                 <div class="testimonial_slider_img">
-                                    <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial_slider">
-                        <div class="row">
-                            <div class="col-lg-8 col-xl-4 col-sm-8 align-self-center">
-                                <div class="testimonial_slider_text">
-                                    <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                        hath herb divided divide creepeth living shall i call beginning
-                                        third sea itself set</p>
-                                    <h4>Michel Hashale</h4>
-                                    <h5> Sr. Web designer</h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-xl-2 col-sm-4">
-                                <div class="testimonial_slider_img">
-                                    <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
-                                </div>
-                            </div>
-                            <div class="col-xl-4 d-none d-xl-block">
-                                <div class="testimonial_slider_text">
-                                    <p>Behold place was a multiply creeping creature his domin to thiren open void
-                                        hath herb divided divide creepeth living shall i call beginning
-                                        third sea itself set</p>
-                                    <h4>Michel Hashale</h4>
-                                    <h5> Sr. Web designer</h5>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 d-none d-xl-block">
-                                <div class="testimonial_slider_img">
-                                    <img src="{{ url('frontend/assets/img/testimonial_img_1.png')}}" alt="#">
+                                    <img src="{{ url('frontend/assets/img/jeff.jpg')}}" alt="#">
                                 </div>
                             </div>
                         </div>

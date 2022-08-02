@@ -144,14 +144,13 @@
                     <div class="special_cource_text p-4">
                         <!-- <a href="packagedetail" class="btn_4">Design  </a> -->
                         <p>{{ $package->category }}</p>
-                        <a href="packagedetail">
+                        <a href="{{ url('packagedetail/'.$package->id) }}">
                             <h3 class="mt-2">{{ $package->name }}</h3>
                         </a>
-                        <p  style="color: #0C2E60;"><span class="h3 bold ">Rs. {{ $package->price }}</span> &nbsp;&nbsp;<span><del>Rs100</del></span></p>
+                        <p  style="color: #0C2E60;"><span class="h3 bold ">Rs. {{ $package->price }}</p>
                         
                         <div class="row justify-content-around mt-3">
-                            <a href="purchase.html" class=" col-5 genric-btn primary circle w-50" >Buy</a>
-                            <a href="packagedetail" class="col-5 genric-btn primary circle w-50" >Explore</a>
+                            <a href="{{ url('packagedetail/'.$package->id) }}" class="col-5 genric-btn primary circle w-50" >Explore</a>
                         </div>
                     
                     </div>
@@ -213,7 +212,7 @@
                 <div class="col-xl-5">
                     <div class="section_tittle text-center">
                         <p>tesimonials</p>
-                        <h2>Happy Students</h2>
+                        <h2>Happy Clients</h2>
                     </div>
                 </div>
             </div>

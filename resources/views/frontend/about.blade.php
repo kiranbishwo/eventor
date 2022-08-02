@@ -110,7 +110,7 @@
                 <div class="col-xl-5">
                     <div class="section_tittle text-center">
                         <p>tesimonials</p>
-                        <h2>Happy Students</h2>
+                        <h2>Happy Clients</h2>
                     </div>
                 </div>
             </div>

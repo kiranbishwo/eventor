@@ -31,6 +31,7 @@ class BlogController extends Controller
         
         $req->validate([
             'title'=>'required',
+            'author'=>'required',
             'content'=>'required',
             'photo'=>'required|mimes:jpg,png,jpg|max:5048',
         ]);
@@ -42,6 +43,7 @@ class BlogController extends Controller
         if($req->ajax()){
             $blog = Blog::create([
                 'title' => $req->input('title'),
+                'author' => $req->input('author'),
                 'content' => $req->input('content'),
                 'photo' => $newImageName
             ]);
@@ -105,6 +107,7 @@ class BlogController extends Controller
         if($req->ajax()){
             $req->validate([
                 'title'=>'required',
+                'author'=>'required',
                 'content'=>'required'
             ]);
             $edit_id = $req->input('edit_id');
@@ -125,9 +128,6 @@ class BlogController extends Controller
                 }
                 // end delete file
 
-
-
-
                 $test=$req->file('photo')->guessExtension();//get extention
                 $type=$req->file('photo')->getMimeType();//get type
 
@@ -137,6 +137,7 @@ class BlogController extends Controller
                 $blog = Blog::where('id',$req->input('edit_id'))
                 ->update([
                     'title' => $req->input('title'),
+                    'author' => $req->input('author'),
                     'content' => $req->input('content'),
                     'photo' => $newImageName
                 ]);
@@ -148,6 +149,7 @@ class BlogController extends Controller
                 $blog = Blog::where('id',$req->input('edit_id'))
                 ->update([
                     'title' => $req->input('title'),
+                    'author' => $req->input('author'),
                     'content' => $req->input('content')
                 ]);
                 return Response()->json([

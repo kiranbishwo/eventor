@@ -39,6 +39,10 @@
                               <input type="text" class="form-control" name="title" id="title" placeholder="enter title" required>
                             </div>
                             <div class="form-group">
+                              <label for="author">Author</label>
+                              <input type="text" class="form-control" name="author" id="author" placeholder="enter author name" required>
+                            </div>
+                            <div class="form-group">
                               <label for="summernote">Description</label>
                               <textarea id="summernote" name="content" class="form-control summernote"></textarea>
                             </div>

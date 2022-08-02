@@ -41,6 +41,10 @@
                               <input type="hidden"  name="edit_id" id="edit_id" required value="{{$blog['id']}}">
                             </div>
                             <div class="form-group">
+                                <label for="author">Author</label>
+                                <input type="text" class="form-control" name="author" id="author" placeholder="enter author name" required value="{{$blog['author']}}">
+                              </div>
+                            <div class="form-group">
                               <label for="summernote">Description</label>
                               <textarea id="summernote" name="content" class="form-control summernote">{{$blog['content']}}</textarea>
                             </div>

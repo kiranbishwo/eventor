@@ -25,7 +25,7 @@
             
 
             <!-- prject ,team member start -->
-            @if(Session::get('loginId')=='Admin')
+            @if(Session::get('role')=='Admin')
             <div class="col-md-3">
                 <div class="card table-card">
                     <div class="card-header ">
