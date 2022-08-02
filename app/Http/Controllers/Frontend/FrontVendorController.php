@@ -76,7 +76,12 @@ class FrontVendorController extends Controller
 
      // loadtable
     public function loadtable(){
-        $package = Subpackage::where('addedBy',Session::get('vendorLoginId'))->get();
+
+        $package = DB::table('subpackages')
+        ->join('packages', 'subpackages.package_id', '=', 'packages.id')
+        ->where('subpackages.addedBy',Session::get('vendorLoginId'))
+        ->get(['subpackages.*', 'packages.name as pname']);
+        
         return response()->json([
             'package'=> $package,
         ]);
@@ -159,7 +164,7 @@ class FrontVendorController extends Controller
             $Subpackage = Subpackage::where('id',$req->input('id'))
             ->update([
                 'name' => $req->input('name'),
-                'package' => $req->input('package'),
+                'package_id' => $req->input('package'),
                 'price' => $req->input('price'),
                 'status' => $req->input('status'),
                 'content' => $req->input('content'),

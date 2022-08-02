@@ -51,6 +51,10 @@
                                     <option value="Entertainment">Entertainment</option>
                                     <option value="Media">Media</option>
                                     <option value="Decorator">Decorator</option>
+                                    <option value="Banquet">Banquet</option>
+                                    <option value="Airlines">Airlines</option>
+                                    <option value="Florist">Florist</option>
+                                    <option value="Marketing">Marketing</option>
                                 </select>
                             </div>
                             <div class="form-group">

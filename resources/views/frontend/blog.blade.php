@@ -12,16 +12,14 @@
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="{{ url('images/'.$blog->photo) }}" alt="">
-                                    <a href="#" class="blog_item_date">
-                                        <h3>15</h3>
-                                        <p>Jan</p>
-                                    </a>
+                                    
                                 </div>
 
                                 <div class="blog_details">
                                     <a class="d-inline-block" href="{{ url('blog-detail/'.$blog->id) }} ">
                                         <h2>{{ $blog->title }}</h2>
                                     </a>
+                                    <p>{{ $blog->created_at }}</p>
                                 </div>
                             </article>
                         @empty
@@ -44,7 +42,7 @@
                                 <div class="media post_item">
                                     <img src="{{ url('images/'.$blogs->photo) }}" alt="post" width="100">
                                     <div class="media-body">
-                                        <a href="blog-detail">
+                                        <a href="{{ url('blog-detail/'.$blogs->id) }}">
                                             <h5>{{ $blogs->title }}</h5>
                                         </a>
                                         <p>{{ $blogs->created_at }}</p>

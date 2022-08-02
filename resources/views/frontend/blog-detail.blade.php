@@ -14,6 +14,7 @@
                    <h1>{{ $blog->title }}</h1>
                    <ul class="blog-info-link mt-3 mb-4">
                       <li><a href="#"><i class="far fa-user"></i> {{ $blog->author }}</a></li>
+                      <li><a href="#"><i class="ti ti-time"></i> {{ $blog->created_at }}</a></li>
                    </ul>
                    <?php  echo $blog->content; ?>
                      

@@ -112,10 +112,10 @@ $(document).ready(function(){
                 `<tr>
                     <td>${item.id}</td>
                     <td>${item.name}</td>
-                    <td>${item.package}</td>
-                    <td>Rs. ${item.price}</td>
+                    <td>${item.pname}</td>
+                    <td>Rs.${item.price}</td>
                     <td>${item.status}</td>
-                    <td class="text-center">
+                    <td style="width:30%">
                         <button value="${item.id}" class="btn btn-sm bg-danger  text-white rounded delete-btn"><i class="ti-archive"></i>
                         </button><a href=
                         '{{ url('update-package/${item.id}') }}' class="btn btn-sm bg-success text-white rounded mx-3"><i class="ti-pencil-alt"></i></a>

@@ -44,7 +44,8 @@
                                 <thead>
                                     <tr>
                                         <th>id</th>
-                                        <th style="width:80%">Vendors name </th>
+                                        <th style="width:40%">Vendors name </th>
+                                        <th style="width:40%">Service </th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                         
@@ -109,6 +110,7 @@ $(document).ready(function(){
                 ` <tr>
                     <th scope="row">${item.id}</th>
                     <th scope="row">${item.name}</th>
+                    <th scope="row">${item.service}</th>
                     <td><a href="{{ url('/vendor/edit/${item.id}') }}" class="btn btn-sm btn-warning edit-btn">Edit</a></td>
                     <td><button value="${item.id}" class="btn btn-sm btn-danger delete-btn">Delete</button></td>
                 </tr>`

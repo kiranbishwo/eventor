@@ -25,7 +25,7 @@
                             <a href="{{ url('packagedetail/'.$package->id) }}">
                                 <h3 class="mt-2">{{ $package->name }}</h3>
                             </a>
-                            <p  style="color: #0C2E60;"><span class="h3 bold ">Rs. {{ $package->price }}</span> &nbsp;&nbsp;<span><del>Rs100</del></span></p>
+                            <p  style="color: #0C2E60;"><span class="h3 bold ">Rs. {{ $package->price }}</p>
                             
                             <div class="row justify-content-around mt-3">
                                 <a href="{{ url('packagedetail/'.$package->id) }}" class="col-5 genric-btn primary circle w-50" >Explore</a>

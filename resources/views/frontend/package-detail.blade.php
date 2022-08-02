@@ -16,12 +16,12 @@
                 <div class="col-md-6 course_details_left">
                     <h3 class="mb-3">{{ $package->name }}</h3>
                     <div class="main_image w-100">
-                        <img class="img-fluid w-100" src="{{ url('frontend/assets/img/single_cource.png')}}" alt="" >
+                        <img class="img-fluid w-100" src="{{ url('images/'.$package->photo) }}" alt="" >
                     </div>
                     <div class="content_wrapper">
                         <h4 class="title">Description</h4>
                         <div class="content">
-                            {{ $package->content }}
+                            {!! $package->content !!}
                         </div>
                     </div>
                 </div>
@@ -40,12 +40,6 @@
                                 <a class="justify-content-between d-flex" href="#">
                                     <p>Package Charge </p>
                                     <span>Rs. {{ $package->price }}</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="justify-content-between d-flex" href="#">
-                                    <p>Available Seats </p>
-                                    <span>15</span>
                                 </a>
                             </li>
                             <li>
@@ -106,9 +100,9 @@
 
                         </ul>
                         @if(session()->has('userLoginId'))
-                            <button  class="btn_1 d-block w-100 enrole_package">Enroll the course</button>
+                            <button  class="btn_1 d-block w-100 enrole_package">Enroll the Package</button>
                         @else 
-                            <a class="btn_1 d-block w-100 " href="{{ url('user-login') }}">Enroll the course</a>
+                            <a class="btn_1 d-block w-100 " href="{{ url('user-login') }}">Enroll the Package</a>
                         @endif
                         
                     </div>

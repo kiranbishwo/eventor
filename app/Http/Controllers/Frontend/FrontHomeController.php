@@ -16,7 +16,6 @@ class FrontHomeController extends Controller
     public function home(){
         $blog = DB::table('blogs')->take(3)->get();
         $package = DB::table('packages')->take(3)->get();
-        // return view('frontend.layout.header', ['category'=>$category]);
         return view('frontend.index', ['package'=>$package,'blog'=>$blog]);
         
     }

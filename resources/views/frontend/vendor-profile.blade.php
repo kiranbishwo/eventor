@@ -10,7 +10,7 @@
                     @include('frontend.profile-sidenve')
                     
                     <div class="col-8">
-                        <h2>My Revenue</h2>
+                        <h2>My Information</h2>
                         <hr>
                         <div class="row mb-4">
                           <div class="col-6">

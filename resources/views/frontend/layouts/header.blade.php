@@ -73,7 +73,7 @@
                 id="navbarSupportedContent"
               >
                 <ul class="navbar-nav align-items-center">
-                  <li class="nav-item active">
+                  <li class="nav-item ">
                     <a class="nav-link" href="{{ url('/') }}">Home</a>
                   </li>
                   <li class="nav-item dropdown">
@@ -94,8 +94,8 @@
                         @endforeach
                     </div>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url('packages') }}">Packages</a>
+                  <li class="nav-item active">
+                    <a class="nav-link " href="{{ url('packages') }}">Packages</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('blogs') }}">Blog</a>

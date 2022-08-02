@@ -53,6 +53,10 @@
                                 <label for="contact">Contact</label>
                                 <input type="text" class="form-control" name="contact" id="contact" placeholder="Enter Contact Number" required value="{{$vendor['contact']}}">
                             </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" name="email" id="email" placeholder="Enter Contact Number" required value="{{$vendor['email']}}">
+                            </div>
                             
                             <div class="form-group">
                                 <label for="status">Vendor Status</label>
