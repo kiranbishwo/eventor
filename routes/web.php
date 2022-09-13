@@ -41,7 +41,7 @@ Route::get('contactus/',[FrontHomeController::class, 'contactus']);
 Route::get('front-gallery/',[FrontHomeController::class, 'gallery']);
 Route::get('blogs/',[FrontHomeController::class, 'blogs']);
 Route::get('blog-detail/{title}',[FrontHomeController::class, 'blogdetail']);
-
+ 
 // manage packages
 Route::get('packages/',[FrontPackageController::class, 'index']);
 Route::get('packagedetail/{id}',[FrontPackageController::class, 'packagedetail']);

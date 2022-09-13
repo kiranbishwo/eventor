@@ -94,6 +94,28 @@
             <!-- prject ,team member start -->
         </div>
         <!-- [ Main Content ] end -->
+
+        {{-- api table check --}}
+        <div class="row">
+            <table class="table table-light">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">image</th>
+                    <th scope="col">author</th>
+                    <th scope="col">title</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
     </div>
 </div>
 @endsection

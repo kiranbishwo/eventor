@@ -9,7 +9,6 @@
                     <div class="single_feature_text ">
                         <h2>Awesome <br> Feature</h2>
                         <p>A wonderful platform to experience our features and a way to get the bestest way to get familiar with eventor.  </p>
-                        <a href="{{ url('aboutus') }}" class="btn_1">Read More</a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xl-3">
@@ -62,7 +61,6 @@
                             mainly works as a bridge between vendors and users. Our goal is not only to provide 
                             quality, but also to make it customized. </p>
                         
-                        <a href="{{ url('aboutus') }}" class="btn_1">Read More</a>
                     </div>
                 </div>
             </div>

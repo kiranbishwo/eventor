@@ -23,7 +23,7 @@ class CategoryController extends Controller
         ]);
         
     }
-
+ 
 
     public function store(Request $req){
         if($req->ajax()){
