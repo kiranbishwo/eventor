@@ -22,7 +22,6 @@ use App\Http\Controllers\Frontend\FrontUserController;
 use App\Http\Controllers\FrontLoginController;
 use App\Http\Controllers\PaymentController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -110,24 +109,6 @@ Route::get('/payment-verify/',[PaymentController::class, 'verify']);//actual res
 
 
 // payment and invoices
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
